@@ -18,6 +18,9 @@ Launch Development Container
 > git clone this-repo && cd repo
 > ./docker/build.sh
 > ./docker/run.sh
+> docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}"
+NAMES               CONTAINER ID        STATUS
+frr                 fcd55c4a7432        Up 10 minutes
 ```
 
 Clone, Build and Install FRR
