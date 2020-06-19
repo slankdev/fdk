@@ -53,3 +53,18 @@ adduser --system --ingroup frr --home /var/run/frr/ --gecos "FRRouting suite" --
 usermod -G frrvty frr
 chown -R frr.frr /var/run/frr
 ```
+
+## Execute Topotest
+```
+cd /root/frr/tests/topotest/srv6_manager
+./test_srv6_manager.py --topology-only
+```
+
+```
+nsenter -t $(pgrep -f mininet:r1) -a vtysh -c 'sh segment-routing srv6 sid'
+Local SIDs:
+ Name       Context              Prefix                   Owner
+---------- -------------------- ------------------------ ------------
+ End        USP                  2001:db8:1:1:1::/80      static
+ End        USP                  2001:db8:2:2:1::/80      static
+```
