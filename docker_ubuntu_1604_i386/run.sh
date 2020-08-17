@@ -4,4 +4,4 @@ NAM=frr-ubuntu1604-i386
 docker run -td --privileged \
   -v /root/git/frr:/root/git/frr \
   -v /tmp:/tmp \
-  --name $NAM $IMG
+  --name $NAM -hostname $NAM $IMG
