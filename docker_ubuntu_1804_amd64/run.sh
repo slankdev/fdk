@@ -1,7 +1,6 @@
 #!/bin/sh
-IMG=slankdev/frr-dev:ubuntu-18.06-i386
-NAM=frr-ubuntu1604-i386
+IMG=slankdev/frr-dev:ubuntu-18.04-amd64
+NAM=frr-ubuntu1804-amd64
 docker run -td --privileged \
   -v /root/git/frr:/root/git/frr \
-  -v /tmp:/tmp \
   --name $NAM $IMG
