@@ -15,7 +15,7 @@ ADD https://ci1.netdef.org/artifact/LIBYANG-YANGRELEASE/shared/build-10/Debian-A
 RUN cd /tmp && apt install -y ./*.deb
 
 ## Fot Topotest
-RUN apt-get update && apt-get install -y  mininet python-pip iproute2 gdb
+RUN apt-get update && apt-get install -y  mininet python-pip iproute2 gdb net-tools
 RUN pip install --upgrade pip \
  && pip install ipaddr "pytest<5" exabgp==3.4.17 pyutil zip\
  && useradd -d /var/run/exabgp/ -s /bin/false exabgp
