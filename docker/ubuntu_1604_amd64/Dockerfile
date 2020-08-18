@@ -25,8 +25,8 @@ RUN addgroup --system --gid 92 frr \
  && addgroup --system --gid 85 frrvty \
  && adduser --system --ingroup frr \
     --home /var/run/frr/ \
-		--shell /bin/false frr \
-	  --gecos "FRRouting suite" \
+    --shell /bin/false frr \
+    --gecos "FRRouting suite" \
  && usermod -G frrvty frr
 
 RUN echo ". /etc/bash_completion" >> /root/.bashrc
