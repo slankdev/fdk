@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  become: True
+  become_method: sudo
+  gather_facts: True
+  tasks:
+
+  - name: install required packages
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - libguestfs
+      - libvirt
+      - libvirt-client
+      - qemu-kvm
+      - virt-manager
+      - virt-top
+      - virt-viewer
+      - virt-who
+      - virt-install
+      - bridge-utils
+
+  - name: enable and start libvirtd
+    systemd:
+      name: libvirtd
+      state: started
+      enabled: yes
+
+  - name: vm.xml
+    template:
+      src: vm.xml
+      dest: /tmp/vm.xml
+    vars:
+      name: slankdev
+
