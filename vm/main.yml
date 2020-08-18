@@ -13,19 +13,14 @@
       - libguestfs
       - libvirt
       - libvirt-client
-      - qemu-kvm
       - virt-manager
       - virt-top
       - virt-viewer
       - virt-who
       - virt-install
       - bridge-utils
-
-  - name: enable and start libvirtd
-    systemd:
-      name: libvirtd
-      state: started
-      enabled: yes
+      - qemu-kvm
+      - qemu-system-x86
 
   - name: vm.xml
     template:
@@ -34,3 +29,21 @@
     vars:
       name: slankdev
 
+  - name: rmmod kvm
+    modprobe:
+      name: kvm_intel
+      state: absent
+    ignore_errors: True
+
+  - name: insmod kvm
+    modprobe:
+      name: kvm_intel
+      state: present
+      params:
+        nested: "1"
+
+  - name: enable and start libvirtd
+    systemd:
+      name: libvirtd
+      state: restarted
+      enabled: yes
