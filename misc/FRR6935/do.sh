@@ -25,7 +25,7 @@ function route_scale_test() {
   fi
 
   docker exec $1 bash -c '
-    git clone https://github.com/FRRouting/frr /frr && \
+    git clone -b slankdev-debug-topotest https://github.com/slankdev/frr /frr && \
     cd /frr && \
     ./bootstrap.sh && \
     ./configure \
@@ -40,7 +40,11 @@ function route_scale_test() {
       --enable-user=frr \
       --enable-group=frr \
       --enable-vty-group=frrvty \
-      --with-pkg-extra-version=-zapi-nexthop-hacks && \
+      --with-pkg-extra-version=-zapi-nexthop-hacks
+  '
+
+  docker exec $1 bash -c '
+    cd /frr && \
     make -j8 && \
     make -j8 install
   '
@@ -52,11 +56,12 @@ function route_scale_test() {
 
   docker stop $1
 }
+export -f route_scale_test
 
 create_container slankdev/frr-dev:ubuntu-16.04-i386  ubuntu1604-i386  2000mb 2000Mb 0
 create_container slankdev/frr-dev:ubuntu-16.04-amd64 ubuntu1604-amd64 2000mb 2000Mb 0
 create_container slankdev/frr-dev:ubuntu-18.04-amd64 ubuntu1804-amd64 2000mb 2000Mb 0
 
-route_scale_test ubuntu1604-i386-2000mb-2000Mb-0  xx xx &
-route_scale_test ubuntu1604-amd64-2000mb-2000Mb-0 xx xx &
-route_scale_test ubuntu1804-amd64-2000mb-2000Mb-0 xx xx &
+nohup bash -c "route_scale_test ubuntu1604-i386-2000mb-2000Mb-0  xx xx" > ubuntu1604-i386-2000mb-2000Mb-0.log  &
+nohup bash -c "route_scale_test ubuntu1604-amd64-2000mb-2000Mb-0 xx xx" > ubuntu1604-amd64-2000mb-2000Mb-0.log &
+nohup bash -c "route_scale_test ubuntu1804-amd64-2000mb-2000Mb-0 xx xx" > ubuntu1804-amd64-2000mb-2000Mb-0.log &

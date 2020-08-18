@@ -1,0 +1,568 @@
+Cloning into '/frr'...
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:164: installing './compile'
+configure.ac:25: installing './config.guess'
+configure.ac:25: installing './config.sub'
+configure.ac:100: installing './install-sh'
+configure.ac:100: installing './missing'
+Makefile.am: installing './depcomp'
+configure.ac: installing './ylwrap'
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for perl... /usr/bin/perl
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking for gcc option to accept ISO C99... none needed
+checking for pkg-config... (cached) /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether gcc supports -diag-error 10006... no
+checking whether gcc supports -std=gnu11... yes
+checking whether gcc -std=gnu11 supports -g... yes
+checking whether gcc -std=gnu11 supports -O2... yes
+checking whether gcc -std=gnu11 supports -fno-omit-frame-pointer... yes
+checking whether gcc -std=gnu11 supports -funwind-tables... yes
+checking whether gcc -std=gnu11 supports -Wall... yes
+checking whether gcc -std=gnu11 supports -Wextra... yes
+checking whether gcc -std=gnu11 supports -Wmissing-prototypes... yes
+checking whether gcc -std=gnu11 supports -Wmissing-declarations... yes
+checking whether gcc -std=gnu11 supports -Wpointer-arith... yes
+checking whether gcc -std=gnu11 supports -Wbad-function-cast... yes
+checking whether gcc -std=gnu11 supports -Wwrite-strings... yes
+checking whether gcc -std=gnu11 supports -Wundef... yes
+checking whether gcc -std=gnu11 supports -Wno-unused-result... yes
+checking whether gcc -std=gnu11 supports -Wno-unused-parameter... yes
+checking whether gcc -std=gnu11 supports -Wno-missing-field-initializers... yes
+checking whether gcc -std=gnu11 supports -Wc++-compat... yes
+checking whether gcc -std=gnu11 supports -diag-disable 3179... no
+checking whether gcc -std=gnu11 supports -fplugin=tools/gcc-plugins/frr-format.so... no
+checking whether gcc -std=gnu11 supports -fplugin=frr-format... no
+checking if compiler needs -Werror to reject unknown flags... no
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... no
+checking whether pthreads work with -Kthread... no
+checking whether pthreads work with -kthread... no
+checking for the pthreads library -llthread... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for library containing pthread_condattr_setclock... none required
+checking whether ln -s works... yes
+checking for ar... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc -std=gnu11... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc -std=gnu11 object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc -std=gnu11 supports -fno-rtti -fno-exceptions... no
+checking for gcc -std=gnu11 option to produce PIC... -fPIC -DPIC
+checking if gcc -std=gnu11 PIC flag -fPIC -DPIC works... yes
+checking if gcc -std=gnu11 static flag -static works... yes
+checking if gcc -std=gnu11 supports -c -o file.o... yes
+checking if gcc -std=gnu11 supports -c -o file.o... (cached) yes
+checking whether the gcc -std=gnu11 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether ar supports D option... yes
+checking whether ranlib supports D option... yes
+checking json-c/json.h usability... yes
+checking json-c/json.h presence... yes
+checking for json-c/json.h... yes
+checking for json_object_get in -ljson-c... yes
+checking python interpreter python3... /usr/bin/python3 (python3)
+checking whether /usr/bin/python3.5m-config is available... yes
+checking whether /usr/bin/python3.5m-config provides a working build environment... yes
+checking whether /usr/bin/python3 module pytest is available... yes
+checking whether /usr/bin/python3 module sphinx is available... yes
+checking whether /usr/bin/python3 module sphinx is executable... yes
+checking if zebra should be configurable to send Route Advertisements... yes
+checking for objcopy... objcopy
+checking for .interp value to use... /lib64/ld-linux-x86-64.so.2
+checking stropts.h usability... yes
+checking stropts.h presence... yes
+checking for stropts.h... yes
+checking sys/ksym.h usability... no
+checking sys/ksym.h presence... no
+checking for sys/ksym.h... no
+checking linux/version.h usability... yes
+checking linux/version.h presence... yes
+checking for linux/version.h... yes
+checking asm/types.h usability... yes
+checking asm/types.h presence... yes
+checking for asm/types.h... yes
+checking stdatomic.h usability... yes
+checking stdatomic.h presence... yes
+checking for stdatomic.h... yes
+checking whether _Atomic qualifier works... yes
+checking for pthread_np.h... no
+checking for pthread_setname_np... yes
+checking for pthread_set_name_np... no
+checking for pthread_getthreadid_np... no
+checking for Linux futex() support... yes
+checking for net/if_var.h... no
+checking for netinet/in_var.h... no
+checking for net/if_dl.h... no
+checking for net/netopt.h... no
+checking for inet/nd.h... no
+checking for netinet/ip_icmp.h... yes
+checking for sys/sysctl.h... yes
+checking for sys/sockio.h... no
+checking for sys/conf.h... no
+checking for ucontext.h... yes
+checking for ucontext_t.uc_mcontext.uc_regs... no
+checking for ucontext_t.uc_mcontext.regs... no
+checking for ucontext_t.uc_mcontext.gregs... yes
+checking which operating system interface to use... Linux
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking whether byte ordering is bigendian... no
+checking for strlcat... no
+checking for strlcpy... no
+checking for getgrouplist... yes
+checking for openat... yes
+checking for unlinkat... yes
+checking for posix_fallocate... yes
+checking for main in -lreadline... yes
+checking readline/history.h usability... yes
+checking readline/history.h presence... yes
+checking for readline/history.h... yes
+checking for rl_completion_matches in -lreadline... yes
+checking for append_history in -lreadline... yes
+checking for library containing pow... -lm
+checking for ppoll... yes
+checking for pollts... no
+checking asm-generic/unistd.h usability... yes
+checking asm-generic/unistd.h presence... yes
+checking for asm-generic/unistd.h... yes
+checking whether __NR_setns is declared... yes
+checking for setns... yes
+checking net/bpf.h usability... no
+checking net/bpf.h presence... no
+checking for net/bpf.h... no
+checking sys/dlpi.h usability... no
+checking sys/dlpi.h presence... no
+checking for sys/dlpi.h... no
+checking zebra IS-IS I/O method... pfpacket
+checking for struct ip_mreqn.imr_ifindex... yes
+checking for linux/mroute.h... yes
+checking for netinet/ip_mroute.h... no
+checking for BSD struct ip_mreq hack... no
+checking for RFC3678 protocol-independed API... yes
+checking for net/if_media.h... no
+checking for struct if_data.ifi_link_state... no
+checking for netinet/tcp.h... yes
+checking whether TCP_MD5SIG is declared... yes
+checking for crypt in -lcrypt... yes
+checking for res_init in -lresolv... no
+checking for CARES (libcares)... yes
+checking for struct utsname.domainname... yes
+checking for netinet6/in6.h... no
+checking for netinet/in6_var.h... no
+checking for netinet6/in6_var.h... no
+checking for netinet6/nd6.h... no
+checking for LIBYANG (libyang >= 0.16.105)... yes
+checking for struct lyd_node.priv... yes
+checking for ZEROMQ (libzmq >= 4.0.0)... no
+checking for pimd OS support... yes
+checking for VRRP OS support... yes
+checking whether the RTR Library is compiled with SSH... no
+checking for library containing dlopen... -ldl
+checking link.h usability... yes
+checking link.h presence... yes
+checking for link.h... yes
+checking for dlinfo(RTLD_DI_ORIGIN)... yes
+checking for dlinfo(RTLD_DI_LINKMAP)... yes
+checking for struct sockaddr_dl... no
+checking for struct vifctl... yes
+checking for struct mfcctl... yes
+checking for struct sioc_sg_req... yes
+checking for vifi_t... yes
+checking for struct sioc_vif_req... yes
+checking for struct igmpmsg... yes
+checking for struct ifaliasreq... no
+checking for struct if6_aliasreq... no
+checking for struct in6_aliasreq... no
+checking for struct nd_opt_adv_interval... yes
+checking for struct nd_opt_homeagent_info... no
+checking for struct nd_opt_adv_interval... (cached) yes
+checking for struct nd_opt_rdnss... no
+checking for struct nd_opt_dnssl... no
+checking for struct sockaddr.sa_len... no
+checking for struct sockaddr_in.sin_len... no
+checking for struct sockaddr_un.sun_len... no
+checking for struct sockaddr_dl.sdl_len... no
+checking for struct if6_aliasreq.ifra_lifetime... no
+checking for struct nd_opt_adv_interval.nd_opt_ai_type... no
+checking for struct in_pktinfo... yes
+checking for struct icmphdr... yes
+checking for IP_PKTINFO... yes
+checking for IP_RECVDSTADDR... no
+checking for IP_RECVIF... no
+checking for SO_BINDANY... no
+checking for IP_FREEBIND... yes
+checking whether be32enc is declared... no
+checking whether be32dec is declared... no
+checking whether CLOCK_MONOTONIC is declared... yes
+checking for clock_gettime in -lrt... yes
+checking for library containing clock_nanosleep... none required
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking version of flex... 2.6.0
+checking for bison... bison -y
+checking version of bison... 3.0.4 - 3.3 or newer
+checking whether prctl PR_SET_KEEPCAPS is available... yes
+checking sys/capability.h usability... yes
+checking sys/capability.h presence... yes
+checking for sys/capability.h... yes
+checking for cap_init in -lcap... yes
+checking for UNWIND (libunwind)... no
+checking unwind.h usability... yes
+checking unwind.h presence... yes
+checking for unwind.h... yes
+checking for library containing unw_getcontext... no
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking for library containing backtrace... none required
+checking for malloc.h... yes
+checking for malloc_np.h... no
+checking for malloc/malloc.h... no
+checking whether mallinfo is available... yes
+checking whether malloc_usable_size is available... yes
+checking directory to use for state file... /var/run/frr
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.version
+config.status: creating changelog-auto
+config.status: creating redhat/frr.spec
+config.status: creating solaris/Makefile
+config.status: creating alpine/APKBUILD
+config.status: creating snapcraft/snapcraft.yaml
+config.status: creating lib/version.h
+config.status: creating tests/lib/cli/test_cli.refout
+config.status: creating pkgsrc/bgpd.sh
+config.status: creating pkgsrc/ospf6d.sh
+config.status: creating pkgsrc/ospfd.sh
+config.status: creating pkgsrc/ripd.sh
+config.status: creating pkgsrc/ripngd.sh
+config.status: creating pkgsrc/zebra.sh
+config.status: creating pkgsrc/eigrpd.sh
+config.status: creating vtysh/extract.pl
+config.status: creating tools/frr
+config.status: creating tools/watchfrr.sh
+config.status: creating tools/frrinit.sh
+config.status: creating tools/frrcommon.sh
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing lib/route_types.h commands
+
+FRRouting configuration
+------------------------------
+FRR version             : 7.5-dev-zapi-nexthop-hacks
+host operating system   : linux-gnu
+source code location    : .
+compiler                : gcc -std=gnu11
+compiler flags          :  -g -O2 -fno-omit-frame-pointer -funwind-tables -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wpointer-arith -Wbad-function-cast -Wwrite-strings -Wundef -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers -pthread 
+make                    : make
+linker flags            :   -ldl -lcrypt   -ljson-c -lrt -lcap -lreadline -lm 
+state file directory    : /var/run/frr
+config file directory   : /etc/frr
+example directory       : /etc/frr
+module directory        : /usr/lib/frr/modules
+user to run as          : frr
+group to run as         : frr
+group for vty sockets   : frrvty
+config file mask        : 0600
+log file mask           : 0600
+zebra protobuf enabled  : no
+
+The above user and group must have read/write access to the state file
+directory and to the config files in the config file directory.
+true
+make  all-am
+make[1]: Entering directory '/frr'
+  YACC     lib/command_parse.c
+  LEX      lib/command_lex.c
+  LEX      lib/defun_lex.c
+  CC       bgpd/bgp_dump.o
+  CC       bgpd/bgp_errors.o
+  CC       bgpd/bgp_evpn.o
+  CC       bgpd/bgp_encap_tlv.o
+  CC       bgpd/bgp_evpn_mh.o
+  CC       bgpd/bgp_ecommunity.o
+  CC       bgpd/bgp_filter.o
+  CC       bgpd/bgp_flowspec.o
+  CC       bgpd/bgp_flowspec_util.o
+  CC       bgpd/bgp_flowspec_vty.o
+  CC       bgpd/bgp_fsm.o
+  CC       bgpd/bgp_io.o
+  CC       bgpd/bgp_keepalives.o
+  CC       bgpd/bgp_label.o
+  CC       bgpd/bgp_labelpool.o
+  CC       bgpd/bgp_lcommunity.o
+  CC       bgpd/bgp_mac.o
+  CC       bgpd/bgp_memory.o
+  CC       bgpd/bgp_mpath.o
+  CC       bgpd/bgp_mplsvpn.o
+  CC       bgpd/bgp_network.o
+  CC       bgpd/bgp_nexthop.o
+  CC       bgpd/bgp_nht.o
+  CC       bgpd/bgp_open.o
+  CC       bgpd/bgp_packet.o
+  CC       bgpd/bgp_pbr.o
+  CC       bgpd/bgp_rd.o
+  CC       bgpd/bgp_regex.o
+  CC       bgpd/bgp_table.o
+  CC       bgpd/bgp_updgrp.o
+  CC       bgpd/bgp_updgrp_adv.o
+  CC       bgpd/bgp_updgrp_packet.o
+  CC       bgpd/bgp_vpn.o
+  CC       bgpd/bgp_zebra.o
+  CC       bgpd/bgpd.o
+  CC       lib/agg_table.lo
+  CC       lib/atomlist.lo
+  CC       lib/bfd.lo
+  CC       lib/buffer.lo
+  CC       lib/checksum.lo
+  CC       lib/command.lo
+  CC       lib/command_graph.lo
+  CC       lib/command_match.lo
+  CC       lib/csv.lo
+  CC       lib/debug.lo
+  CC       lib/defaults.lo
+  CC       lib/distribute.lo
+  CC       lib/ferr.lo
+  CC       lib/filter.lo
+  CC       lib/filter_nb.lo
+  CC       lib/frrcu.lo
+  CC       lib/frrlua.lo
+  CC       lib/frr_pthread.lo
+  CC       lib/frrstr.lo
+  CC       lib/getopt.lo
+  CC       lib/getopt1.lo
+  CC       lib/grammar_sandbox.lo
+  CC       lib/graph.lo
+  CC       lib/hash.lo
+  CC       lib/hook.lo
+  CC       lib/id_alloc.lo
+  CC       lib/imsg-buffer.lo
+  CC       lib/if_rmap.lo
+  CC       lib/imsg.lo
+  CC       lib/jhash.lo
+  CC       lib/json.lo
+  CC       lib/keychain.lo
+  CC       lib/lib_errors.lo
+  CC       lib/lib_vty.lo
+  CC       lib/libfrr.lo
+  CC       lib/linklist.lo
+  CC       lib/log.lo
+  CC       lib/log_filter.lo
+  CC       lib/md5.lo
+  CC       lib/memory.lo
+  CC       lib/mlag.lo
+  CC       lib/module.lo
+  CC       lib/mpls.lo
+  CC       lib/srv6.lo
+  CC       lib/network.lo
+  CC       lib/nexthop.lo
+  CC       lib/netns_linux.lo
+  CC       lib/netns_other.lo
+  CC       lib/northbound.lo
+  CC       lib/northbound_db.lo
+  CC       lib/ntop.lo
+  CC       lib/openbsd-tree.lo
+  CC       lib/pid_output.lo
+  CC       lib/prefix.lo
+  CC       lib/privs.lo
+  CC       lib/ptm_lib.lo
+  CC       lib/pullwr.lo
+  CC       lib/qobj.lo
+  CC       lib/ringbuf.lo
+  CC       lib/routemap.lo
+  CC       lib/routemap_northbound.lo
+  CC       lib/sbuf.lo
+  CC       lib/seqlock.lo
+  CC       lib/sha256.lo
+  CC       lib/sigevent.lo
+  CC       lib/skiplist.lo
+  CC       lib/sockopt.lo
+  CC       lib/sockunion.lo
+  CC       lib/spf_backoff.lo
+  CC       lib/srcdest_table.lo
+  CC       lib/stream.lo
+  CC       lib/strlcat.lo
+  CC       lib/strlcpy.lo
+  CC       lib/systemd.lo
+  CC       lib/table.lo
+  CC       lib/termtable.lo
+  CC       lib/thread.lo
+  CC       lib/typerb.lo
+  CC       lib/typesafe.lo
+  CC       lib/vector.lo
+  CC       lib/vrf.lo
+  CC       lib/wheel.lo
+  CC       lib/workqueue.lo
+  CC       lib/yang.lo
+  CC       lib/yang_translator.lo
+  CC       lib/yang_wrappers.lo
+  CC       lib/zclient.lo
+  CC       lib/zlog.lo
+  CC       lib/zlog_targets.lo
+  CC       lib/routing_nb.lo
+  CC       lib/routing_nb_config.lo
+  GEN      yang/frr-filter.yang.c
+  GEN      yang/frr-interface.yang.c
+  GEN      yang/frr-route-map.yang.c
+  GEN      yang/frr-route-types.yang.c
+  GEN      yang/frr-vrf.yang.c
+  GEN      yang/frr-routing.yang.c
+  GEN      yang/frr-nexthop.yang.c
+  GEN      yang/ietf/ietf-routing-types.yang.c
+  GEN      yang/ietf/ietf-interfaces.yang.c
+  GEN      yang/frr-module-translator.yang.c
+  CC       lib/lib_libfrrcares_la-resolver.lo
+  CC       pimd/mtracebis.o
+  CC       pimd/mtracebis_netlink.o
+  CC       pimd/mtracebis_routeget.o
+  EXTRACT  vtysh/vtysh_cmd.c
+  CC       lib/grammar_sandbox_main.o
+  CC       bgpd/bgpd_bgp_btoa-bgp_btoa.o
+  CC       ospfclient/ospfclient.o
+  CC       pimd/test_igmpv3_join.o
+  CC       zebra/connected.o
+  CC       zebra/if_ioctl.o
+  CC       zebra/if_ioctl_solaris.o
+  CC       zebra/if_netlink.o
+  CC       zebra/if_sysctl.o
+  CC       zebra/ioctl.o
+  CC       zebra/ioctl_solaris.o
+  CC       zebra/ipforward_proc.o
+  CC       zebra/ipforward_solaris.o
+  CC       zebra/ipforward_sysctl.o
+  CC       zebra/kernel_netlink.o
+  CC       zebra/label_manager.o
+  CC       zebra/kernel_socket.o
+  CC       zebra/main.o
+  CC       zebra/redistribute.o
+  CC       zebra/router-id.o
+  CC       zebra/rt_netlink.o
+  CC       zebra/rt_socket.o
+  CC       zebra/rtread_getmsg.o
+  CC       zebra/rtread_netlink.o
+  CC       zebra/rtread_sysctl.o
+  CC       zebra/rule_netlink.o
+  CC       zebra/rule_socket.o
+  CC       zebra/table_manager.o
+  CC       zebra/zapi_msg.o
+  CC       zebra/zebra_dplane.o
+  CC       zebra/zebra_errors.o
+  CC       zebra/zebra_gr.o
+  CC       zebra/zebra_l2.o
+  CC       zebra/zebra_evpn.o
+  CC       zebra/zebra_evpn_mac.o
+  CC       zebra/zebra_evpn_neigh.o
+  CC       zebra/zebra_mlag.o
+  CC       zebra/zebra_memory.o
+  CC       zebra/zebra_mpls.o
+  CC       zebra/zebra_mpls_netlink.o
+  CC       zebra/zebra_mpls_openbsd.o
+  CC       zebra/zebra_mpls_null.o
+  CC       zebra/zebra_mpls_vty.o
+  CC       zebra/zebra_mroute.o
+  CC       zebra/zebra_nb.o
+  CC       zebra/zebra_nb_config.o
+  CC       zebra/zebra_nb_rpcs.o
+  CC       zebra/zebra_nb_state.o
+  CC       zebra/zebra_netns_id.o
+  CC       zebra/zebra_netns_notify.o
+  CC       zebra/zebra_nhg.o
