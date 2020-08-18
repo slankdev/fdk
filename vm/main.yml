@@ -47,3 +47,10 @@
       name: libvirtd
       state: restarted
       enabled: yes
+
+  - name: get ubuntu-1604-i386 cloud image
+    tags: slankdev
+    get_url:
+      url: https://cloud-images.ubuntu.com/xenial/20200814/xenial-server-cloudimg-i386-disk1.img
+      dest: /tmp/ubuntu-1604-i386.img
+      checksum: sha256:6f029ff24448dbceae156d0a52456709c51504a77f3f89ebf41fc75c656f875a
