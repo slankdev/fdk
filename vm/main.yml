@@ -22,13 +22,6 @@
       - qemu-kvm
       - qemu-system-x86
 
-  - name: vm.xml
-    template:
-      src: vm.xml
-      dest: /tmp/vm.xml
-    vars:
-      name: slankdev
-
   - name: rmmod kvm
     modprobe:
       name: kvm_intel
@@ -54,3 +47,10 @@
       url: https://cloud-images.ubuntu.com/xenial/20200814/xenial-server-cloudimg-i386-disk1.img
       dest: /tmp/ubuntu-1604-i386.img
       checksum: sha256:6f029ff24448dbceae156d0a52456709c51504a77f3f89ebf41fc75c656f875a
+
+  - name: vm.xml
+    template:
+      src: domain.xml.j2
+      dest: /tmp/ubuntu-1604-i386.xml
+    vars:
+      name: ubuntu-1604-i386
