@@ -20,6 +20,15 @@ RUN pip install --upgrade pip \
  && pip install ipaddr "pytest<5" exabgp==3.4.17 pyutil zip\
  && useradd -d /var/run/exabgp/ -s /bin/false exabgp
 
+## Create User
+RUN addgroup --system --gid 92 frr \
+ && addgroup --system --gid 85 frrvty \
+ && adduser --system --ingroup frr \
+    --home /var/run/frr/ \
+		--shell /bin/false frr \
+	  --gecos "FRRouting suite" \
+ && usermod -G frrvty frr
+
 RUN echo ". /etc/bash_completion" >> /root/.bashrc
 COPY ./docker-start.sh /usr/bin/docker-start.sh
 ENTRYPOINT [ "/usr/bin/docker-start.sh" ]
