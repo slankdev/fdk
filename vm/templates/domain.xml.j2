@@ -1,4 +1,4 @@
-<domain type='kvm' id='2'>
+<domain type='qemu' id='2'>
 	<name>{{ name }}</name>
   <uuid>ff9150a5-82b1-45e1-953e-56d10fd9e628</uuid>
   <memory unit='KiB'>8388608</memory>
@@ -8,46 +8,50 @@
     <partition>/machine</partition>
   </resource>
   <os>
-    <type arch='x86_64' machine='pc-i440fx-rhel7.0.0'>hvm</type>
-    <boot dev='hd'/>
+    <!-- <type arch='x86' machine='pc'>hvm</type> -->
+    <!-- <type>pv</type> -->
+    <!-- <type arch='x86' machine='pc'>linux</type> -->
+		<!-- <boot dev='hd'/> -->
+
+    <type arch='x86' machine='pc-i440fx-2.0'>hvm</type>
   </os>
-  <features>
-    <acpi/>
-    <apic/>
-  </features>
-  <cpu mode='custom' match='exact' check='full'>
-    <model fallback='forbid'>Broadwell-IBRS</model>
-    <vendor>Intel</vendor>
-    <feature policy='require' name='vme'/>
-    <feature policy='disable' name='ds'/>
-    <feature policy='disable' name='acpi'/>
-    <feature policy='require' name='ss'/>
-    <feature policy='disable' name='ht'/>
-    <feature policy='disable' name='tm'/>
-    <feature policy='disable' name='pbe'/>
-    <feature policy='disable' name='dtes64'/>
-    <feature policy='disable' name='monitor'/>
-    <feature policy='disable' name='ds_cpl'/>
-    <feature policy='require' name='vmx'/>
-    <feature policy='disable' name='smx'/>
-    <feature policy='disable' name='est'/>
-    <feature policy='disable' name='tm2'/>
-    <feature policy='disable' name='xtpr'/>
-    <feature policy='disable' name='pdcm'/>
-    <feature policy='disable' name='dca'/>
-    <feature policy='disable' name='osxsave'/>
-    <feature policy='require' name='f16c'/>
-    <feature policy='require' name='rdrand'/>
-    <feature policy='disable' name='arat'/>
-    <feature policy='disable' name='tsc_adjust'/>
-    <feature policy='disable' name='intel-pt'/>
-    <feature policy='require' name='stibp'/>
-    <feature policy='require' name='ssbd'/>
-    <feature policy='require' name='xsaveopt'/>
-    <feature policy='require' name='pdpe1gb'/>
-    <feature policy='require' name='abm'/>
-    <feature policy='require' name='hypervisor'/>
-  </cpu>
+  <!-- <features> -->
+  <!--   <acpi/> -->
+  <!--   <apic/> -->
+  <!-- </features> -->
+  <!-- <cpu mode='custom' match='exact' check='full'> -->
+  <!--   <model fallback='forbid'>Broadwell&#45;IBRS</model> -->
+  <!--   <vendor>Intel</vendor> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='vme'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='ds'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='acpi'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='ss'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='ht'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='tm'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='pbe'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='dtes64'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='monitor'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='ds_cpl'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='vmx'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='smx'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='est'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='tm2'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='xtpr'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='pdcm'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='dca'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='osxsave'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='f16c'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='rdrand'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='arat'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='tsc_adjust'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='disable' name='intel&#38;#45;pt'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='stibp'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='ssbd'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='xsaveopt'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='pdpe1gb'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='abm'/> &#45;&#45;> -->
+  <!--   <!&#45;&#45; <feature policy='require' name='hypervisor'/> &#45;&#45;> -->
+  <!-- </cpu> -->
   <clock offset='utc'>
     <timer name='rtc' tickpolicy='catchup'/>
     <timer name='pit' tickpolicy='delay'/>
@@ -61,7 +65,8 @@
     <suspend-to-disk enabled='no'/>
   </pm>
   <devices>
-    <emulator>/usr/libexec/qemu-kvm</emulator>
+    <emulator>/usr/bin/qemu-system-i386</emulator>
+    <!-- <emulator>/usr/libexec/qemu&#45;kvm</emulator> -->
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2'/>
       <source file='{{ image }}'/>

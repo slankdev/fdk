@@ -56,7 +56,15 @@
       mode: 0600
       force: no
 
+  - name: undefine l1 nodes
+    tags: slankdev
+    virt:
+      command: undefine
+      name: ubuntu-1604-i386
+    ignore_errors: yes
+
   - name: vm.xml
+    tags: slankdev
     virt:
       command: define
       xml: "{{ lookup('template', 'domain.xml.j2') }}"
