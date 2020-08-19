@@ -566,3 +566,843 @@ make[1]: Entering directory '/frr'
   CC       zebra/zebra_netns_id.o
   CC       zebra/zebra_netns_notify.o
   CC       zebra/zebra_nhg.o
+  CC       zebra/zebra_ns.o
+  CC       zebra/zebra_opaque.o
+  CC       zebra/zebra_pbr.o
+  CC       zebra/zebra_ptm.o
+  CC       zebra/zebra_ptm_redistribute.o
+  CC       zebra/zebra_pw.o
+  CC       zebra/zebra_rib.o
+  CC       zebra/zebra_router.o
+  CC       zebra/zebra_rnh.o
+  CC       zebra/zebra_srte.o
+  CC       zebra/zebra_vrf.o
+  CC       zebra/zebra_vxlan.o
+  CC       zebra/zserv.o
+  GEN      yang/frr-zebra.yang.c
+  CC       tools/start-stop-daemon.o
+  CC       bgpd/bgpd_bgpd-bgp_main.o
+  CC       ripd/rip_main.o
+  GEN      yang/frr-ripd.yang.c
+  CC       ripngd/ripng_main.o
+  GEN      yang/frr-ripngd.yang.c
+  CC       ospfd/ospf_main.o
+  CC       ospf6d/ospf6_main.o
+  CC       isisd/isis_bpf.o
+  CC       isisd/isis_dlpi.o
+  CC       isisd/isis_main.o
+  CC       isisd/isis_pfpacket.o
+  GEN      yang/frr-isisd.yang.c
+  CC       isisd/isisd_fabricd-isis_bpf.o
+  CC       isisd/isisd_fabricd-isis_dlpi.o
+  CC       isisd/isisd_fabricd-isis_main.o
+  CC       isisd/isisd_fabricd-isis_pfpacket.o
+  CC       ldpd/ldpd.o
+  CC       babeld/babel_main.o
+  CC       eigrpd/eigrp_main.o
+  GEN      yang/frr-eigrpd.yang.c
+  CC       sharpd/sharp_main.o
+  CC       pimd/pim_main.o
+  GEN      yang/frr-igmp.yang.c
+  GEN      yang/frr-pim.yang.c
+  GEN      yang/frr-pim-rp.yang.c
+  CC       pbrd/pbr_main.o
+  CC       staticd/static_main.o
+  GEN      yang/frr-staticd.yang.c
+  CC       bfdd/bfdd.o
+  GEN      yang/frr-bfdd.yang.c
+  CC       vrrpd/vrrp_main.o
+  GEN      yang/frr-vrrpd.yang.c
+  SPHINX   doc/user/_build/.doctrees/environment.pickle
+  SPHINX   doc/manpages/_build/.doctrees/environment.pickle
+  CC       bgpd/bgp_advertise.o
+  CC       bgpd/bgp_addpath.o
+  CC       bgpd/bgp_aspath.o
+  CC       bgpd/bgp_attr.o
+  CC       bgpd/bgp_attr_evpn.o
+  CC       bgpd/bgp_bfd.o
+  CC       bgpd/bgp_clist.o
+  CC       bgpd/bgp_community.o
+  CC       bgpd/bgp_damp.o
+  CC       lib/lib_clippy-clippy.o
+  CC       lib/lib_clippy-command_graph.o
+  CC       lib/lib_clippy-command_py.o
+  CC       lib/lib_clippy-defun_lex.o
+  CC       lib/lib_clippy-graph.o
+  CC       lib/lib_clippy-memory.o
+  CC       lib/lib_clippy-vector.o
+  CC       bgpd/rfapi/bgp_rfapi_cfg.o
+  CC       bgpd/rfapi/rfapi_import.o
+  CC       bgpd/rfapi/rfapi.o
+  CC       bgpd/rfapi/rfapi_ap.o
+  CC       bgpd/rfapi/rfapi_descriptor_rfp_utils.o
+  CC       bgpd/rfapi/rfapi_encap_tlv.o
+  CC       bgpd/rfapi/rfapi_nve_addr.o
+  CC       bgpd/rfapi/rfapi_monitor.o
+  CC       bgpd/rfapi/rfapi_rib.o
+  CC       bgpd/rfapi/rfapi_vty.o
+  CC       bgpd/rfapi/vnc_debug.o
+  CC       bgpd/rfapi/vnc_export_bgp.o
+  CC       bgpd/rfapi/vnc_export_table.o
+  CC       bgpd/rfapi/vnc_import_bgp.o
+  CC       bgpd/rfapi/vnc_zebra.o
+  CC       bgpd/rfp-example/librfp/rfp_example.o
+  CC       ripd/rip_debug.o
+  CC       ripd/rip_errors.o
+  CC       ripd/rip_interface.o
+  CC       ripd/rip_offset.o
+  CC       ripd/rip_nb.o
+  CC       ripd/rip_nb_config.o
+  CC       ripd/rip_nb_rpcs.o
+  CC       ripd/rip_nb_notifications.o
+  CC       ripd/rip_nb_state.o
+  CC       ripd/rip_routemap.o
+  CC       ripd/rip_peer.o
+  CC       ripd/rip_zebra.o
+  CC       ripd/ripd.o
+  CC       ripngd/ripng_debug.o
+  CC       ripngd/ripng_interface.o
+  CC       ripngd/ripng_nexthop.o
+  CC       ripngd/ripng_offset.o
+  CC       ripngd/ripng_nb.o
+  CC       ripngd/ripng_nb_config.o
+  CC       ripngd/ripng_nb_state.o
+  CC       ripngd/ripng_peer.o
+  CC       ripngd/ripng_nb_rpcs.o
+  CC       ripngd/ripng_route.o
+  CC       ripngd/ripng_routemap.o
+  CC       ripngd/ripng_zebra.o
+  CC       ripngd/ripngd.o
+  CC       ospfd/ospf_abr.o
+  CC       ospfd/ospf_api.o
+  CC       ospfd/ospf_apiserver.o
+  CC       ospfd/ospf_asbr.o
+  CC       ospfd/ospf_ase.o
+  CC       ospfd/ospf_bfd.o
+  CC       ospfd/ospf_dump.o
+  CC       ospfd/ospf_dump_api.o
+  CC       ospfd/ospf_errors.o
+  CC       ospfd/ospf_ext.o
+  CC       ospfd/ospf_flood.o
+  CC       ospfd/ospf_ia.o
+  CC       ospfd/ospf_interface.o
+  CC       ospfd/ospf_ism.o
+  CC       ospfd/ospf_lsa.o
+  CC       ospfd/ospf_lsdb.o
+  CC       ospfd/ospf_memory.o
+  CC       ospfd/ospf_neighbor.o
+  CC       ospfd/ospf_network.o
+  CC       ospfd/ospf_nsm.o
+  CC       ospfd/ospf_opaque.o
+  CC       ospfd/ospf_packet.o
+  CC       ospfd/ospf_ri.o
+  CC       ospfd/ospf_route.o
+  CC       ospfd/ospf_routemap.o
+  CC       ospfd/ospf_spf.o
+  CC       ospfd/ospf_sr.o
+  CC       ospfd/ospf_te.o
+  CC       ospfd/ospf_zebra.o
+  CC       ospfd/ospfd.o
+  CC       ospf6d/ospf6_abr.o
+  CC       ospf6d/ospf6_area.o
+  CC       ospf6d/ospf6_asbr.o
+  CC       ospf6d/ospf6_bfd.o
+  CC       ospf6d/ospf6_flood.o
+  CC       ospf6d/ospf6_interface.o
+  CC       ospf6d/ospf6_intra.o
+  CC       ospf6d/ospf6_lsa.o
+  CC       ospf6d/ospf6_lsdb.o
+  CC       ospf6d/ospf6_memory.o
+  CC       ospf6d/ospf6_message.o
+  CC       ospf6d/ospf6_neighbor.o
+  CC       ospf6d/ospf6_network.o
+  CC       ospf6d/ospf6_proto.o
+  CC       ospf6d/ospf6_route.o
+  CC       ospf6d/ospf6_spf.o
+  CC       ospf6d/ospf6_top.o
+  CC       ospf6d/ospf6_zebra.o
+  CC       ospf6d/ospf6d.o
+  CC       isisd/isis_adjacency.o
+  CC       isisd/isis_bfd.o
+  CC       isisd/isis_circuit.o
+  CC       isisd/isis_csm.o
+  CC       isisd/isis_dr.o
+  CC       isisd/isis_dynhn.o
+  CC       isisd/isis_errors.o
+  CC       isisd/isis_events.o
+  CC       isisd/isis_flags.o
+  CC       isisd/isis_lsp.o
+  CC       isisd/isis_memory.o
+  CC       isisd/isis_misc.o
+  CC       isisd/isis_mt.o
+  CC       isisd/isis_pdu.o
+  CC       isisd/isis_pdu_counter.o
+  CC       isisd/isis_redist.o
+  CC       isisd/isis_route.o
+  CC       isisd/isis_routemap.o
+  CC       isisd/isis_spf.o
+  CC       isisd/isis_sr.o
+  CC       isisd/isis_tlvs.o
+  CC       isisd/isis_te.o
+  CC       isisd/isis_tx_queue.o
+  CC       isisd/isis_zebra.o
+  CC       isisd/isisd.o
+  CC       isisd/iso_checksum.o
+  CC       isisd/fabricd.o
+  CC       isisd/isis_nb.o
+  CC       isisd/isis_nb_config.o
+  CC       isisd/isis_nb_notifications.o
+  CC       isisd/isis_nb_state.o
+  CC       isisd/isisd_libfabric_a-isis_adjacency.o
+  CC       isisd/isisd_libfabric_a-isis_bfd.o
+  CC       isisd/isisd_libfabric_a-isis_circuit.o
+  CC       isisd/isisd_libfabric_a-isis_csm.o
+  CC       isisd/isisd_libfabric_a-isis_dr.o
+  CC       isisd/isisd_libfabric_a-isis_dynhn.o
+  CC       isisd/isisd_libfabric_a-isis_errors.o
+  CC       isisd/isisd_libfabric_a-isis_events.o
+  CC       isisd/isisd_libfabric_a-isis_flags.o
+  CC       isisd/isisd_libfabric_a-isis_lsp.o
+  CC       isisd/isisd_libfabric_a-isis_memory.o
+  CC       isisd/isisd_libfabric_a-isis_misc.o
+  CC       isisd/isisd_libfabric_a-isis_mt.o
+  CC       isisd/isisd_libfabric_a-isis_pdu.o
+  CC       isisd/isisd_libfabric_a-isis_pdu_counter.o
+  CC       isisd/isisd_libfabric_a-isis_redist.o
+  CC       isisd/isisd_libfabric_a-isis_route.o
+  CC       isisd/isisd_libfabric_a-isis_routemap.o
+  CC       isisd/isisd_libfabric_a-isis_spf.o
+  CC       isisd/isisd_libfabric_a-isis_sr.o
+  CC       isisd/isisd_libfabric_a-isis_te.o
+  CC       isisd/isisd_libfabric_a-isis_tx_queue.o
+  CC       isisd/isisd_libfabric_a-isis_tlvs.o
+  CC       isisd/isisd_libfabric_a-isis_zebra.o
+  CC       isisd/isisd_libfabric_a-isisd.o
+  CC       isisd/isisd_libfabric_a-iso_checksum.o
+  CC       isisd/isisd_libfabric_a-fabricd.o
+  CC       isisd/isisd_libfabric_a-isis_vty_fabricd.o
+  CC       ldpd/accept.o
+  CC       ldpd/address.o
+  CC       ldpd/adjacency.o
+  CC       ldpd/control.o
+  CC       ldpd/hello.o
+  CC       ldpd/init.o
+  CC       ldpd/interface.o
+  CC       ldpd/keepalive.o
+  CC       ldpd/l2vpn.o
+  CC       ldpd/labelmapping.o
+  CC       ldpd/lde.o
+  CC       ldpd/lde_lib.o
+  CC       ldpd/ldp_debug.o
+  CC       ldpd/ldp_vty_conf.o
+  CC       ldpd/ldp_vty_exec.o
+  CC       ldpd/ldp_zebra.o
+  CC       ldpd/ldpe.o
+  CC       ldpd/log.o
+  CC       ldpd/logmsg.o
+  CC       ldpd/neighbor.o
+  CC       ldpd/notification.o
+  CC       ldpd/packet.o
+  CC       ldpd/pfkey.o
+  CC       ldpd/socket.o
+  CC       ldpd/util.o
+  CC       babeld/babel_errors.o
+  CC       babeld/babel_filter.o
+  CC       babeld/babel_interface.o
+  CC       babeld/babel_zebra.o
+  CC       babeld/babeld.o
+  CC       babeld/kernel.o
+  CC       babeld/neighbour.o
+  CC       babeld/message.o
+  CC       babeld/net.o
+  CC       babeld/resend.o
+  CC       babeld/route.o
+  CC       babeld/source.o
+  CC       babeld/util.o
+  CC       babeld/xroute.o
+  CC       eigrpd/eigrp_dump.o
+  CC       eigrpd/eigrp_errors.o
+  CC       eigrpd/eigrp_filter.o
+  CC       eigrpd/eigrp_fsm.o
+  CC       eigrpd/eigrp_interface.o
+  CC       eigrpd/eigrp_hello.o
+  CC       eigrpd/eigrp_memory.o
+  CC       eigrpd/eigrp_neighbor.o
+  CC       eigrpd/eigrp_network.o
+  CC       eigrpd/eigrp_northbound.o
+  CC       eigrpd/eigrp_packet.o
+  CC       eigrpd/eigrp_query.o
+  CC       eigrpd/eigrp_reply.o
+  CC       eigrpd/eigrp_siaquery.o
+  CC       eigrpd/eigrp_siareply.o
+  CC       eigrpd/eigrp_snmp.o
+  CC       eigrpd/eigrp_topology.o
+  CC       eigrpd/eigrp_update.o
+  CC       eigrpd/eigrp_vrf.o
+  CC       eigrpd/eigrp_zebra.o
+  CC       eigrpd/eigrpd.o
+  CC       sharpd/sharp_nht.o
+  CC       sharpd/sharp_zebra.o
+  CC       sharpd/sharp_logpump.o
+  CC       pimd/pim_assert.o
+  CC       pimd/pim_bfd.o
+  CC       pimd/pim_br.o
+  CC       pimd/pim_bsm.o
+  CC       pimd/pim_errors.o
+  CC       pimd/pim_hello.o
+  CC       pimd/pim_iface.o
+  CC       pimd/pim_ifchannel.o
+  CC       pimd/pim_igmp.o
+  CC       pimd/pim_igmp_mtrace.o
+  CC       pimd/pim_igmp_stats.o
+  CC       pimd/pim_igmpv2.o
+  CC       pimd/pim_igmpv3.o
+  CC       pimd/pim_instance.o
+  CC       pimd/pim_int.o
+  CC       pimd/pim_join.o
+  CC       pimd/pim_macro.o
+  CC       pimd/pim_jp_agg.o
+  CC       pimd/pim_memory.o
+  CC       pimd/pim_mlag.o
+  CC       pimd/pim_mroute.o
+  CC       pimd/pim_msdp.o
+  CC       pimd/pim_msdp_socket.o
+  CC       pimd/pim_msdp_packet.o
+  CC       pimd/pim_msg.o
+  CC       pimd/pim_neighbor.o
+  CC       pimd/pim_nht.o
+  CC       pimd/pim_oil.o
+  CC       pimd/pim_pim.o
+  CC       pimd/pim_routemap.o
+  CC       pimd/pim_register.o
+  CC       pimd/pim_rp.o
+  CC       pimd/pim_rpf.o
+  CC       pimd/pim_signals.o
+  CC       pimd/pim_sock.o
+  CC       pimd/pim_ssm.o
+  CC       pimd/pim_ssmpingd.o
+  CC       pimd/pim_static.o
+  CC       pimd/pim_str.o
+  CC       pimd/pim_time.o
+  CC       pimd/pim_tlv.o
+  CC       pimd/pim_upstream.o
+  CC       pimd/pim_util.o
+  CC       pimd/pim_version.o
+  CC       pimd/pim_vty.o
+  CC       pimd/pim_zlookup.o
+  CC       pimd/pim_zebra.o
+  CC       pimd/pim_vxlan.o
+  CC       pimd/pim_zpthread.o
+  CC       pimd/pimd.o
+  CC       pbrd/pbr_zebra.o
+  CC       pbrd/pbr_map.o
+  CC       pbrd/pbr_memory.o
+  CC       pbrd/pbr_nht.o
+  CC       pbrd/pbr_vrf.o
+  CC       staticd/static_debug.o
+  CC       staticd/static_memory.o
+  CC       staticd/static_nht.o
+  CC       staticd/static_routes.o
+  CC       staticd/static_zebra.o
+  CC       staticd/static_vrf.o
+  CC       staticd/static_nb.o
+  CC       staticd/static_nb_config.o
+  CC       bfdd/bfd.o
+  CC       bfdd/bfdd_nb.o
+  CC       bfdd/bfdd_nb_config.o
+  CC       bfdd/bfdd_nb_state.o
+  CC       bfdd/bfd_packet.o
+  CC       bfdd/config.o
+  CC       bfdd/control.o
+  CC       bfdd/event.o
+  CC       bfdd/ptm_adapter.o
+  CC       vrrpd/vrrp.o
+  CC       vrrpd/vrrp_arp.o
+  CC       vrrpd/vrrp_debug.o
+  CC       vrrpd/vrrp_ndisc.o
+  CC       vrrpd/vrrp_northbound.o
+  CC       vrrpd/vrrp_packet.o
+  CC       vrrpd/vrrp_zebra.o
+  CC       lib/command_parse.lo
+  CC       lib/command_lex.lo
+  CC       lib/printf/printf-pos.lo
+  CC       lib/printf/vfprintf.lo
+  CC       lib/printf/glue.lo
+  CC       yang/frr-filter.yang.lo
+  CC       yang/frr-interface.yang.lo
+  CC       yang/frr-route-map.yang.lo
+  CC       yang/frr-route-types.yang.lo
+  CC       yang/frr-vrf.yang.lo
+  CC       yang/frr-routing.yang.lo
+  CC       yang/frr-nexthop.yang.lo
+  CC       yang/ietf/ietf-routing-types.yang.lo
+  CC       yang/ietf/ietf-interfaces.yang.lo
+  CC       yang/frr-module-translator.yang.lo
+  CCLD     lib/libfrrcares.la
+  CC       zebra/irdp_interface.lo
+  CC       ospfclient/ospf_apiclient.lo
+  CC       zebra/irdp_main.lo
+  CC       zebra/irdp_packet.lo
+  CC       zebra/zebra_mlag_private.lo
+  CC       zebra/dplane_fpm_nl.lo
+  CC       vtysh/vtysh_main.o
+  CC       vtysh/vtysh.o
+  CC       vtysh/vtysh_user.o
+  CC       vtysh/vtysh_config.o
+  CC       vtysh/vtysh_cmd.o
+  CC       tools/permutations.o
+  CC       tools/gen_northbound_callbacks.o
+  CC       tools/gen_yang_deviations.o
+  CC       yang/frr-zebra.yang.o
+  CC       bgpd/rfp-example/rfptest/bgpd_rfp_example_rfptest_rfptest-rfptest.o
+  CC       watchfrr/watchfrr.o
+  CC       watchfrr/watchfrr_errors.o
+  CCLD     tools/ssd
+  CC       yang/frr-ripd.yang.o
+  CC       yang/frr-ripngd.yang.o
+  CC       yang/frr-isisd.yang.o
+  CC       nhrpd/linux.o
+  CC       nhrpd/netlink_arp.o
+  CC       nhrpd/netlink_gre.o
+  CC       nhrpd/nhrp_cache.o
+  CC       nhrpd/nhrp_errors.o
+  CC       nhrpd/nhrp_event.o
+  CC       nhrpd/nhrp_interface.o
+  CC       nhrpd/nhrp_main.o
+  CC       nhrpd/nhrp_nhs.o
+  CC       nhrpd/nhrp_packet.o
+  CC       nhrpd/nhrp_peer.o
+  CC       nhrpd/nhrp_route.o
+  CC       nhrpd/nhrp_shortcut.o
+  CC       nhrpd/nhrp_vc.o
+  CC       nhrpd/nhrp_vty.o
+  CC       nhrpd/reqid.o
+  CC       nhrpd/vici.o
+  CC       nhrpd/zbuf.o
+  CC       nhrpd/znl.o
+  CC       yang/frr-eigrpd.yang.o
+  CC       yang/frr-igmp.yang.o
+  CC       yang/frr-pim.yang.o
+  CC       yang/frr-pim-rp.yang.o
+  CC       yang/frr-staticd.yang.o
+  CC       yang/frr-bfdd.yang.o
+  CC       yang/frr-vrrpd.yang.o
+  SPHINX   doc/user/_build/texinfo/frr.texi
+  SPHINX   doc/manpages/_build/man/man.stamp
+  CC       lib/lib_clippy-command_lex.o
+  CC       lib/lib_clippy-command_parse.o
+  AR       bgpd/rfp-example/librfp/librfp.a
+  AR       ospf6d/libospf6.a
+  AR       isisd/libfabric.a
+  AR       babeld/libbabel.a
+  CCLD     zebra/zebra_irdp.la
+  CCLD     zebra/zebra_cumulus_mlag.la
+  CCLD     zebra/dplane_fpm_nl.la
+  CCLD     lib/clippy
+  CLIPPY   bgpd/bgp_debug_clippy.c
+  CLIPPY   bgpd/bgp_routemap_clippy.c
+  CLIPPY   bgpd/bgp_evpn_vty_clippy.c
+  CLIPPY   ripd/rip_cli_clippy.c
+  CLIPPY   bgpd/bgp_route_clippy.c
+  CLIPPY   bgpd/bgp_vty_clippy.c
+  CLIPPY   ripngd/ripng_cli_clippy.c
+  CLIPPY   ospfd/ospf_vty_clippy.c
+  CLIPPY   ldpd/ldp_vty_cmds_clippy.c
+  CLIPPY   isisd/isis_cli_clippy.c
+  CLIPPY   eigrpd/eigrp_cli_clippy.c
+  CLIPPY   eigrpd/eigrp_vty_clippy.c
+  CLIPPY   sharpd/sharp_vty_clippy.c
+  CLIPPY   pbrd/pbr_vty_clippy.c
+  CLIPPY   pimd/pim_cmd_clippy.c
+  CLIPPY   pbrd/pbr_debug_clippy.c
+  CLIPPY   staticd/static_vty_clippy.c
+  CLIPPY   bfdd/bfdd_vty_clippy.c
+  CLIPPY   bfdd/bfdd_cli_clippy.c
+  CLIPPY   vrrpd/vrrp_vty_clippy.c
+  CLIPPY   lib/filter_cli_clippy.c
+  CLIPPY   lib/if_clippy.c
+  CLIPPY   lib/log_vty_clippy.c
+  CLIPPY   lib/northbound_cli_clippy.c
+  CLIPPY   lib/nexthop_group_clippy.c
+  CLIPPY   lib/routemap_cli_clippy.c
+  CLIPPY   lib/plist_clippy.c
+  CLIPPY   lib/vty_clippy.c
+  CLIPPY   bgpd/bgp_bmp_clippy.c
+  CLIPPY   zebra/debug_clippy.c
+  CLIPPY   zebra/rtadv_clippy.c
+  CLIPPY   zebra/interface_clippy.c
+  CLIPPY   zebra/zebra_mlag_vty_clippy.c
+  CLIPPY   zebra/zebra_routemap_clippy.c
+  CLIPPY   zebra/zebra_vty_clippy.c
+  CLIPPY   zebra/zebra_evpn_mh_clippy.c
+  CLIPPY   watchfrr/watchfrr_vty_clippy.c
+  CC       bgpd/bgp_debug.o
+  CC       bgpd/bgp_routemap.o
+  CC       bgpd/bgp_evpn_vty.o
+  CC       bgpd/bgp_route.o
+  CC       bgpd/bgp_vty.o
+  CC       ripd/rip_cli.o
+  CC       ripngd/ripng_cli.o
+  CC       ospfd/ospf_vty.o
+  CC       isisd/isis_cli.o
+  CC       ldpd/ldp_vty_cmds.o
+  CC       eigrpd/eigrp_cli.o
+  CC       eigrpd/eigrp_vty.o
+  CC       sharpd/sharp_vty.o
+  CC       pimd/pim_cmd.o
+  CC       pbrd/pbr_vty.o
+  CC       pbrd/pbr_debug.o
+  CC       staticd/static_vty.o
+  CC       bfdd/bfdd_vty.o
+  CC       bfdd/bfdd_cli.o
+  CC       vrrpd/vrrp_vty.o
+  CC       lib/filter_cli.lo
+  CC       lib/if.lo
+  CC       lib/log_vty.lo
+  CC       lib/nexthop_group.lo
+  CC       lib/northbound_cli.lo
+  CC       lib/plist.lo
+  CC       lib/routemap_cli.lo
+  CC       lib/vty.lo
+  CC       bgpd/bgp_bmp.lo
+  CC       zebra/debug.o
+  CC       zebra/interface.o
+  CC       zebra/rtadv.o
+  CC       zebra/zebra_mlag_vty.o
+  CC       zebra/zebra_routemap.o
+  CC       zebra/zebra_vty.o
+  CC       zebra/zebra_evpn_mh.o
+  CC       watchfrr/watchfrr_vty.o
+  AR       bgpd/libbgp.a
+  AR       ripd/librip.a
+  AR       ripngd/libripng.a
+  AR       ospfd/libfrrospf.a
+  AR       isisd/libisis.a
+  AR       ldpd/libldp.a
+  AR       eigrpd/libeigrp.a
+  AR       pimd/libpim.a
+  AR       pbrd/libpbr.a
+  AR       sharpd/libsharp.a
+  AR       staticd/libstatic.a
+  AR       bfdd/libbfd.a
+  AR       vrrpd/libvrrp.a
+  CCLD     lib/libfrr.la
+copying selected object files to avoid basename conflicts...
+  MAKEINFO doc/user/_build/texinfo/frr.info
+  CCLD     ospfclient/libfrrospfapiclient.la
+  CCLD     lib/grammar_sandbox
+  CCLD     tools/gen_northbound_callbacks
+  CCLD     tools/permutations
+  CCLD     vtysh/vtysh
+  CCLD     pimd/mtracebis
+  CCLD     tools/gen_yang_deviations
+  CCLD     bgpd/bgp_btoa
+  CCLD     bgpd/rfp-example/rfptest/rfptest
+  CCLD     zebra/zebra
+  CCLD     pimd/test_igmpv3_join
+  CCLD     watchfrr/watchfrr
+  CCLD     bgpd/bgpd
+  CCLD     ripd/ripd
+  CCLD     ripngd/ripngd
+  CCLD     ospfd/ospfd
+  CCLD     ospf6d/ospf6d
+  CCLD     isisd/isisd
+  CCLD     isisd/fabricd
+  CCLD     nhrpd/nhrpd
+  CCLD     ldpd/ldpd
+  CCLD     babeld/babeld
+  CCLD     eigrpd/eigrpd
+  CCLD     sharpd/sharpd
+  CCLD     pimd/pimd
+  CCLD     pbrd/pbrd
+  CCLD     bfdd/bfdd
+  CCLD     staticd/staticd
+  CCLD     vrrpd/vrrpd
+  CCLD     bgpd/bgpd_bmp.la
+  CCLD     ospfclient/ospfclient
+make[1]: Leaving directory '/frr'
+true
+make  install-am
+make[1]: Entering directory '/frr'
+  SPHINX   doc/manpages/_build/man/man.stamp
+make[2]: Entering directory '/frr'
+ /bin/mkdir -p '/usr/lib/frr'
+/bin/mkdir -p "/usr/share/info"
+/usr/bin/install -c -m 644 "doc/user/_build/texinfo/frr.info" "/usr/share/info"
+ /usr/bin/install -c tools/frr-reload tools/frr-reload.py tools/frr tools/frrcommon.sh tools/frrinit.sh tools/generate_support_bundle.py tools/watchfrr.sh '/usr/lib/frr'
+ /bin/mkdir -p '/etc/frr'
+ /bin/mkdir -p '/usr/share/yang'
+ /bin/mkdir -p '/usr/include/frr/ospfd'
+ /bin/mkdir -p '/usr/include/frr'
+ /usr/bin/install -c -m 644 zebra/zebra.conf.sample bgpd/bgpd.conf.sample bgpd/bgpd.conf.sample2 bgpd/bgpd.conf.vnc.sample ripd/ripd.conf.sample ripngd/ripngd.conf.sample ospfd/ospfd.conf.sample ospf6d/ospf6d.conf.sample isisd/isisd.conf.sample isisd/fabricd.conf.sample ldpd/ldpd.conf.sample babeld/babeld.conf.sample eigrpd/eigrpd.conf.sample sharpd/sharpd.conf.sample pimd/pimd.conf.sample pbrd/pbrd.conf.sample staticd/staticd.conf.sample bfdd/bfdd.conf.sample vtysh/vtysh.conf.sample '/etc/frr'
+[ -z "" ] &&  --info-dir="/usr/share/info" "doc/user/_build/texinfo/frr.info" || true
+ /bin/mkdir -p '/usr/include/frr/ospfapi'
+ /bin/mkdir -p '/usr/include/frr/eigrpd'
+ /bin/mkdir -p '/usr/include/frr'
+/bin/bash: --info-dir=/usr/share/info: No such file or directory
+ /usr/bin/install -c -m 644 lib/route_types.h lib/version.h '/usr/include/frr'
+ /usr/bin/install -c -m 644 yang/frr-filter.yang yang/frr-module-translator.yang yang/frr-nexthop.yang yang/frr-test-module.yang yang/frr-interface.yang yang/frr-route-map.yang yang/frr-vrf.yang yang/frr-route-types.yang yang/frr-routing.yang yang/ietf/ietf-routing-types.yang yang/ietf/ietf-interfaces.yang yang/frr-bfdd.yang yang/frr-eigrpd.yang yang/frr-ripd.yang yang/frr-ripngd.yang yang/frr-isisd.yang yang/frr-vrrpd.yang yang/frr-staticd.yang yang/frr-zebra.yang yang/frr-igmp.yang yang/frr-pim.yang yang/frr-pim-rp.yang '/usr/share/yang'
+ /usr/bin/install -c -m 644 ospfd/ospf_api.h ospfd/ospf_asbr.h ospfd/ospf_dump.h ospfd/ospf_dump_api.h ospfd/ospf_ism.h ospfd/ospf_lsa.h ospfd/ospf_lsdb.h ospfd/ospf_nsm.h ospfd/ospf_opaque.h ospfd/ospfd.h '/usr/include/frr/ospfd'
+ /usr/bin/install -c -m 644 ospfclient/ospf_apiclient.h '/usr/include/frr/ospfapi'
+ /usr/bin/install -c -m 644 lib/agg_table.h lib/atomlist.h lib/bfd.h lib/bitfield.h lib/buffer.h lib/checksum.h lib/mlag.h lib/command.h lib/command_graph.h lib/command_match.h lib/compiler.h lib/csv.h lib/db.h lib/debug.h lib/defaults.h lib/distribute.h lib/ferr.h lib/filter.h lib/freebsd-queue.h lib/frrlua.h lib/frr_pthread.h lib/frratomic.h lib/frrcu.h lib/frrstr.h lib/getopt.h lib/graph.h lib/hash.h lib/hook.h lib/iana_afi.h lib/id_alloc.h lib/if.h lib/if_rmap.h lib/imsg.h lib/ipaddr.h lib/jhash.h lib/json.h lib/keychain.h lib/lib_errors.h lib/lib_vty.h lib/libfrr.h '/usr/include/frr'
+ /usr/bin/install -c -m 644 eigrpd/eigrp_dump.h eigrpd/eigrp_topology.h eigrpd/eigrpd.h '/usr/include/frr/eigrpd'
+ /usr/bin/install -c -m 644 lib/libospf.h lib/linklist.h lib/log.h lib/log_vty.h lib/md5.h lib/memory.h lib/module.h lib/monotime.h lib/mpls.h lib/srv6.h lib/network.h lib/nexthop.h lib/nexthop_group.h lib/nexthop_group_private.h lib/northbound.h lib/northbound_cli.h lib/northbound_db.h lib/ns.h lib/openbsd-queue.h lib/openbsd-tree.h lib/plist.h lib/prefix.h lib/printfrr.h lib/privs.h lib/ptm_lib.h lib/pullwr.h lib/pw.h lib/qobj.h lib/queue.h lib/ringbuf.h lib/routemap.h lib/sbuf.h lib/seqlock.h lib/sha256.h lib/sigevent.h lib/skiplist.h lib/smux.h lib/sockopt.h lib/sockunion.h lib/spf_backoff.h '/usr/include/frr'
+  SPHINX   doc/manpages/_build/man/man.stamp
+ /bin/mkdir -p '/usr/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   lib/libfrr.la lib/libfrrcares.la ospfclient/libfrrospfapiclient.la '/usr/lib'
+ /usr/bin/install -c -m 644 lib/srcdest_table.h lib/srte.h lib/stream.h lib/systemd.h lib/table.h lib/termtable.h lib/thread.h lib/typerb.h lib/typesafe.h lib/vector.h lib/vlan.h lib/vrf.h lib/vrf_int.h lib/vty.h lib/vxlan.h lib/wheel.h lib/workqueue.h lib/yang.h lib/yang_translator.h lib/yang_wrappers.h lib/zassert.h lib/zclient.h lib/zebra.h lib/zlog.h lib/zlog_targets.h lib/pbr.h lib/routing_nb.h lib/resolver.h '/usr/include/frr'
+libtool: install: /usr/bin/install -c lib/.libs/libfrr.so.0.0.0 /usr/lib/libfrr.so.0.0.0
+libtool: install: (cd /usr/lib && { ln -s -f libfrr.so.0.0.0 libfrr.so.0 || { rm -f libfrr.so.0 && ln -s libfrr.so.0.0.0 libfrr.so.0; }; })
+libtool: install: (cd /usr/lib && { ln -s -f libfrr.so.0.0.0 libfrr.so || { rm -f libfrr.so && ln -s libfrr.so.0.0.0 libfrr.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libfrr.lai /usr/lib/libfrr.la
+libtool: install: /usr/bin/install -c lib/.libs/libfrrcares.so.0.0.0 /usr/lib/libfrrcares.so.0.0.0
+libtool: install: (cd /usr/lib && { ln -s -f libfrrcares.so.0.0.0 libfrrcares.so.0 || { rm -f libfrrcares.so.0 && ln -s libfrrcares.so.0.0.0 libfrrcares.so.0; }; })
+libtool: install: (cd /usr/lib && { ln -s -f libfrrcares.so.0.0.0 libfrrcares.so || { rm -f libfrrcares.so && ln -s libfrrcares.so.0.0.0 libfrrcares.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libfrrcares.lai /usr/lib/libfrrcares.la
+libtool: install: (cd /frr; /bin/bash "/frr/libtool"  --silent --tag CC --mode=relink gcc -std=gnu11 -g -O2 -fno-omit-frame-pointer -funwind-tables -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wpointer-arith -Wbad-function-cast -Wwrite-strings -Wundef -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers -pthread -version-info 0:0:0 -o ospfclient/libfrrospfapiclient.la -rpath /usr/lib ospfclient/ospf_apiclient.lo lib/libfrr.la -ldl -lcrypt -ljson-c -lrt )
+libtool: install: /usr/bin/install -c ospfclient/.libs/libfrrospfapiclient.so.0.0.0T /usr/lib/libfrrospfapiclient.so.0.0.0
+libtool: install: (cd /usr/lib && { ln -s -f libfrrospfapiclient.so.0.0.0 libfrrospfapiclient.so.0 || { rm -f libfrrospfapiclient.so.0 && ln -s libfrrospfapiclient.so.0.0.0 libfrrospfapiclient.so.0; }; })
+libtool: install: (cd /usr/lib && { ln -s -f libfrrospfapiclient.so.0.0.0 libfrrospfapiclient.so || { rm -f libfrrospfapiclient.so && ln -s libfrrospfapiclient.so.0.0.0 libfrrospfapiclient.so; }; })
+libtool: install: /usr/bin/install -c ospfclient/.libs/libfrrospfapiclient.lai /usr/lib/libfrrospfapiclient.la
+libtool: install: /usr/bin/install -c lib/.libs/libfrr.a /usr/lib/libfrr.a
+libtool: install: chmod 644 /usr/lib/libfrr.a
+libtool: install: ranlib -D /usr/lib/libfrr.a
+libtool: install: /usr/bin/install -c lib/.libs/libfrrcares.a /usr/lib/libfrrcares.a
+libtool: install: chmod 644 /usr/lib/libfrrcares.a
+libtool: install: ranlib -D /usr/lib/libfrrcares.a
+libtool: install: /usr/bin/install -c ospfclient/.libs/libfrrospfapiclient.a /usr/lib/libfrrospfapiclient.a
+libtool: install: chmod 644 /usr/lib/libfrrospfapiclient.a
+libtool: install: ranlib -D /usr/lib/libfrrospfapiclient.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /bin/mkdir -p '/usr/bin'
+ /bin/mkdir -p '/usr/lib/frr'
+ /bin/mkdir -p '/usr/lib/frr/modules'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   zebra/zebra_irdp.la zebra/zebra_cumulus_mlag.la zebra/dplane_fpm_nl.la bgpd/bgpd_bmp.la '/usr/lib/frr/modules'
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c zebra/zebra watchfrr/watchfrr tools/ssd bgpd/bgpd ripd/ripd ripngd/ripngd ospfd/ospfd ospf6d/ospf6d isisd/isisd isisd/fabricd nhrpd/nhrpd ldpd/ldpd babeld/babeld eigrpd/eigrpd sharpd/sharpd pimd/pimd pbrd/pbrd staticd/staticd bfdd/bfdd vrrpd/vrrpd '/usr/lib/frr'
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c pimd/mtracebis vtysh/vtysh '/usr/bin'
+libtool: install: /usr/bin/install -c zebra/.libs/zebra_irdp.so /usr/lib/frr/modules/zebra_irdp.so
+libtool: install: /usr/bin/install -c zebra/.libs/zebra_irdp.lai /usr/lib/frr/modules/zebra_irdp.la
+libtool: install: /usr/bin/install -c zebra/.libs/zebra_cumulus_mlag.so /usr/lib/frr/modules/zebra_cumulus_mlag.so
+libtool: install: /usr/bin/install -c zebra/.libs/zebra_cumulus_mlag.lai /usr/lib/frr/modules/zebra_cumulus_mlag.la
+libtool: install: /usr/bin/install -c zebra/.libs/dplane_fpm_nl.so /usr/lib/frr/modules/dplane_fpm_nl.so
+libtool: install: /usr/bin/install -c zebra/.libs/dplane_fpm_nl.lai /usr/lib/frr/modules/dplane_fpm_nl.la
+libtool: install: /usr/bin/install -c pimd/.libs/mtracebis /usr/bin/mtracebis
+libtool: install: (cd /frr; /bin/bash "/frr/libtool"  --silent --tag CC --mode=relink gcc -std=gnu11 -g -O2 -fno-omit-frame-pointer -funwind-tables -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wpointer-arith -Wbad-function-cast -Wwrite-strings -Wundef -Wno-unused-result -Wno-unused-parameter -Wno-missing-field-initializers -pthread -avoid-version -module -shared -export-dynamic -o bgpd/bgpd_bmp.la -rpath /usr/lib/frr/modules bgpd/bgp_bmp.lo lib/libfrrcares.la -ldl -lcrypt -ljson-c -lrt )
+libtool: install: /usr/bin/install -c vtysh/.libs/vtysh /usr/bin/vtysh
+libtool: install: /usr/bin/install -c zebra/.libs/zebra /usr/lib/frr/zebra
+libtool: install: /usr/bin/install -c watchfrr/.libs/watchfrr /usr/lib/frr/watchfrr
+libtool: install: /usr/bin/install -c tools/ssd /usr/lib/frr/ssd
+libtool: install: /usr/bin/install -c bgpd/.libs/bgpd /usr/lib/frr/bgpd
+libtool: install: /usr/bin/install -c ripd/.libs/ripd /usr/lib/frr/ripd
+libtool: install: /usr/bin/install -c bgpd/.libs/bgpd_bmp.soT /usr/lib/frr/modules/bgpd_bmp.so
+libtool: install: /usr/bin/install -c bgpd/.libs/bgpd_bmp.lai /usr/lib/frr/modules/bgpd_bmp.la
+libtool: install: /usr/bin/install -c ripngd/.libs/ripngd /usr/lib/frr/ripngd
+libtool: install: /usr/bin/install -c ospfd/.libs/ospfd /usr/lib/frr/ospfd
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /usr/lib/frr/modules
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/lib/frr/modules
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+libtool: install: /usr/bin/install -c ospf6d/.libs/ospf6d /usr/lib/frr/ospf6d
+libtool: install: /usr/bin/install -c isisd/.libs/isisd /usr/lib/frr/isisd
+libtool: install: /usr/bin/install -c isisd/.libs/fabricd /usr/lib/frr/fabricd
+libtool: install: /usr/bin/install -c nhrpd/.libs/nhrpd /usr/lib/frr/nhrpd
+libtool: install: /usr/bin/install -c ldpd/.libs/ldpd /usr/lib/frr/ldpd
+libtool: install: /usr/bin/install -c babeld/.libs/babeld /usr/lib/frr/babeld
+libtool: install: /usr/bin/install -c eigrpd/.libs/eigrpd /usr/lib/frr/eigrpd
+libtool: install: /usr/bin/install -c sharpd/.libs/sharpd /usr/lib/frr/sharpd
+libtool: install: /usr/bin/install -c pimd/.libs/pimd /usr/lib/frr/pimd
+libtool: install: /usr/bin/install -c pbrd/.libs/pbrd /usr/lib/frr/pbrd
+libtool: install: /usr/bin/install -c staticd/.libs/staticd /usr/lib/frr/staticd
+libtool: install: /usr/bin/install -c bfdd/.libs/bfdd /usr/lib/frr/bfdd
+libtool: install: /usr/bin/install -c vrrpd/.libs/vrrpd /usr/lib/frr/vrrpd
+ /bin/mkdir -p '/usr/share/man/man1'
+ /bin/mkdir -p '/usr/share/man/man8'
+ /usr/bin/install -c -m 644 doc/manpages/_build/man/frr.1 doc/manpages/_build/man/vtysh.1 '/usr/share/man/man1'
+ /usr/bin/install -c -m 644 doc/manpages/_build/man/frr-zebra.8 doc/manpages/_build/man/frr-watchfrr.8 doc/manpages/_build/man/frr-bgpd.8 doc/manpages/_build/man/frr-ripd.8 doc/manpages/_build/man/frr-ripngd.8 doc/manpages/_build/man/frr-ospfd.8 doc/manpages/_build/man/frr-ospf6d.8 doc/manpages/_build/man/frr-isisd.8 doc/manpages/_build/man/frr-nhrpd.8 doc/manpages/_build/man/frr-ldpd.8 doc/manpages/_build/man/frr-eigrpd.8 doc/manpages/_build/man/frr-sharpd.8 doc/manpages/_build/man/frr-pimd.8 doc/manpages/_build/man/mtracebis.8 doc/manpages/_build/man/frr-pbrd.8 doc/manpages/_build/man/frr-staticd.8 doc/manpages/_build/man/frr-bfdd.8 doc/manpages/_build/man/frr-vrrpd.8 '/usr/share/man/man8'
+make[2]: Leaving directory '/frr'
+make[1]: Leaving directory '/frr'
+mkdir: cannot create directory '/tmp/topotests': File exists
+2020-08-18 20:08:13,604 INFO: Running environment diagnostics
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.12, pytest-4.6.11, py-1.9.0, pluggy-0.13.1
+rootdir: /frr/tests/topotests, inifile: pytest.ini
+collected 3 items
+
+test_route_scale.py *** Error setting resource limits. Mininet's performance may be affected.
+2020-08-18 20:08:32,782 INFO: loading topology: test_route_scale
+2020-08-18 20:08:32,783 INFO: starting topology: test_route_scale
+2020-08-18 20:08:33,143 INFO: r1: running version: 7.5-dev-zapi-nexthop-hacks
+.2020-08-18 20:08:33,958 INFO: Testing 1 million routes X 1 ecmp
+2020-08-18 20:08:34,451 INFO: 'router_json_cmp' polling started (interval 7 secs, maximum wait 210 secs)
+2020-08-18 20:08:49,126 INFO: 'router_json_cmp' succeeded after 14.68 seconds
+2020-08-18 20:08:49,239 INFO: 1 million routes X 1 ecmp installed
+2020-08-18 20:08:49,239 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 0 Time: 11.840999
+
+2020-08-18 20:08:49,640 INFO: 'router_json_cmp' polling started (interval 7 secs, maximum wait 210 secs)
+2020-08-18 20:09:11,341 INFO: 'router_json_cmp' succeeded after 21.70 seconds
+2020-08-18 20:09:11,451 INFO: 1 million routes x 1 ecmp removed
+2020-08-18 20:09:11,451 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 20.962702
+
+2020-08-18 20:09:11,451 INFO: Testing 1 million routes X 2 ecmp
+2020-08-18 20:09:12,035 INFO: 'router_json_cmp' polling started (interval 7 secs, maximum wait 210 secs)
+2020-08-18 20:09:48,410 INFO: 'router_json_cmp' succeeded after 36.38 seconds
+2020-08-18 20:09:48,557 INFO: 1 million routes X 2 ecmp installed
+2020-08-18 20:09:48,557 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 32.128659
+
+2020-08-18 20:09:49,048 INFO: 'router_json_cmp' polling started (interval 7 secs, maximum wait 210 secs)
+2020-08-18 20:10:10,722 INFO: 'router_json_cmp' succeeded after 21.67 seconds
+2020-08-18 20:10:10,834 INFO: 1 million routes x 2 ecmp removed
+2020-08-18 20:10:10,834 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 21.107411
+
+2020-08-18 20:10:10,834 INFO: Testing 1 million routes X 4 ecmp
+2020-08-18 20:10:11,633 INFO: 'router_json_cmp' polling started (interval 7 secs, maximum wait 210 secs)
+2020-08-18 20:10:48,056 INFO: 'router_json_cmp' succeeded after 36.42 seconds
+2020-08-18 20:10:48,167 INFO: 1 million routes X 4 ecmp installed
+2020-08-18 20:10:48,167 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 36.471561
+
+2020-08-18 20:10:48,605 INFO: 'router_json_cmp' polling started (interval 7 secs, maximum wait 210 secs)
+2020-08-18 20:11:10,335 INFO: 'router_json_cmp' succeeded after 21.73 seconds
+2020-08-18 20:11:10,478 INFO: 1 million routes x 4 ecmp removed
+2020-08-18 20:11:10,478 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 21.934920
+
+2020-08-18 20:11:10,478 INFO: Testing 1 million routes X 8 ecmp
+2020-08-18 20:11:11,686 INFO: 'router_json_cmp' polling started (interval 7 secs, maximum wait 210 secs)
+2020-08-18 20:11:40,912 INFO: 'router_json_cmp' succeeded after 29.23 seconds
+2020-08-18 20:11:41,055 INFO: 1 million routes X 8 ecmp installed
+2020-08-18 20:11:41,055 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 24.990129
+
+2020-08-18 20:11:41,455 INFO: 'router_json_cmp' polling started (interval 7 secs, maximum wait 210 secs)
+2020-08-18 20:12:10,322 INFO: 'router_json_cmp' succeeded after 28.87 seconds
+2020-08-18 20:12:10,433 INFO: 1 million routes x 8 ecmp removed
+2020-08-18 20:12:10,433 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 29.59537
+
+2020-08-18 20:12:10,433 INFO: Testing 1 million routes X 16 ecmp
+2020-08-18 20:12:12,368 INFO: 'router_json_cmp' polling started (interval 10 secs, maximum wait 400 secs)
+2020-08-18 20:12:53,714 INFO: 'router_json_cmp' succeeded after 41.35 seconds
+2020-08-18 20:12:53,827 INFO: 1 million routes X 16 ecmp installed
+2020-08-18 20:12:53,827 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 35.25411
+
+2020-08-18 20:12:54,287 INFO: 'router_json_cmp' polling started (interval 10 secs, maximum wait 400 secs)
+2020-08-18 20:13:25,084 INFO: 'router_json_cmp' succeeded after 30.80 seconds
+2020-08-18 20:13:25,208 INFO: 1 million routes x 16 ecmp removed
+2020-08-18 20:13:25,208 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 26.551310
+
+2020-08-18 20:13:25,208 INFO: Testing 1 million routes X 32 ecmp
+2020-08-18 20:13:29,657 INFO: 'router_json_cmp' polling started (interval 10 secs, maximum wait 400 secs)
+2020-08-18 20:14:32,235 INFO: 'router_json_cmp' succeeded after 62.58 seconds
+2020-08-18 20:14:32,345 INFO: 1 million routes X 32 ecmp installed
+2020-08-18 20:14:32,345 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 60.97866
+
+2020-08-18 20:14:32,745 INFO: 'router_json_cmp' polling started (interval 10 secs, maximum wait 400 secs)
+2020-08-18 20:15:03,515 INFO: 'router_json_cmp' succeeded after 30.77 seconds
+2020-08-18 20:15:03,628 INFO: 1 million routes x 32 ecmp removed
+2020-08-18 20:15:03,628 INFO: Prefix: 1.0.0.0/32 Total: 1000000 1000000 1000000 Time: 27.75094
+
+.2020-08-18 20:15:03,744 INFO: assert skipped at "test_route_scale/test_memory_leak": Memory leak test/report is disabled
+s2020-08-18 20:15:03,746 INFO: stopping topology: test_route_scale
+2020-08-18 20:15:03,746 INFO: stopping "sw15"
+2020-08-18 20:15:03,746 INFO: stopping "sw14"
+2020-08-18 20:15:03,746 INFO: stopping "sw17"
+2020-08-18 20:15:03,747 INFO: stopping "sw16"
+2020-08-18 20:15:03,747 INFO: stopping "sw11"
+2020-08-18 20:15:03,747 INFO: stopping "sw10"
+2020-08-18 20:15:03,747 INFO: stopping "sw13"
+2020-08-18 20:15:03,747 INFO: stopping "sw12"
+2020-08-18 20:15:03,747 INFO: stopping "sw19"
+2020-08-18 20:15:03,747 INFO: stopping "sw18"
+2020-08-18 20:15:03,747 INFO: stopping "sw32"
+2020-08-18 20:15:03,747 INFO: stopping "sw31"
+2020-08-18 20:15:03,747 INFO: stopping "sw30"
+2020-08-18 20:15:03,748 INFO: stopping "sw28"
+2020-08-18 20:15:03,748 INFO: stopping "sw29"
+2020-08-18 20:15:03,748 INFO: stopping "sw24"
+2020-08-18 20:15:03,748 INFO: stopping "sw25"
+2020-08-18 20:15:03,748 INFO: stopping "sw26"
+2020-08-18 20:15:03,748 INFO: stopping "sw27"
+2020-08-18 20:15:03,748 INFO: stopping "sw20"
+2020-08-18 20:15:03,748 INFO: stopping "sw21"
+2020-08-18 20:15:03,748 INFO: stopping "sw22"
+2020-08-18 20:15:03,748 INFO: stopping "sw23"
+2020-08-18 20:15:03,752 INFO: r1: stopping sharpd
+2020-08-18 20:15:03,758 INFO: r1: stopping staticd
+2020-08-18 20:15:03,759 INFO: r1: stopping zebra
+2020-08-18 20:15:03,760 INFO: stopping "sw9"
+2020-08-18 20:15:03,760 INFO: stopping "sw8"
+2020-08-18 20:15:03,760 INFO: stopping "sw1"
+2020-08-18 20:15:03,760 INFO: stopping "sw3"
+2020-08-18 20:15:03,760 INFO: stopping "sw2"
+2020-08-18 20:15:03,760 INFO: stopping "sw5"
+2020-08-18 20:15:03,760 INFO: stopping "sw4"
+2020-08-18 20:15:03,760 INFO: stopping "sw7"
+2020-08-18 20:15:03,760 INFO: stopping "sw6"
+2020-08-18 20:15:03,760 INFO: stopping "sw15"
+2020-08-18 20:15:03,760 INFO: stopping "sw14"
+2020-08-18 20:15:03,761 INFO: stopping "sw17"
+2020-08-18 20:15:03,761 INFO: stopping "sw16"
+2020-08-18 20:15:03,761 INFO: stopping "sw11"
+2020-08-18 20:15:03,761 INFO: stopping "sw10"
+2020-08-18 20:15:03,761 INFO: stopping "sw13"
+2020-08-18 20:15:03,761 INFO: stopping "sw12"
+2020-08-18 20:15:03,761 INFO: stopping "sw19"
+2020-08-18 20:15:03,761 INFO: stopping "sw18"
+2020-08-18 20:15:03,761 INFO: stopping "sw32"
+2020-08-18 20:15:03,761 INFO: stopping "sw31"
+2020-08-18 20:15:03,761 INFO: stopping "sw30"
+2020-08-18 20:15:03,761 INFO: stopping "sw28"
+2020-08-18 20:15:03,762 INFO: stopping "sw29"
+2020-08-18 20:15:03,762 INFO: stopping "sw24"
+2020-08-18 20:15:03,762 INFO: stopping "sw25"
+2020-08-18 20:15:03,762 INFO: stopping "sw26"
+2020-08-18 20:15:03,762 INFO: stopping "sw27"
+2020-08-18 20:15:03,762 INFO: stopping "sw20"
+2020-08-18 20:15:03,762 INFO: stopping "sw21"
+2020-08-18 20:15:03,762 INFO: stopping "sw22"
+2020-08-18 20:15:03,762 INFO: stopping "sw23"
+2020-08-18 20:15:03,768 INFO: r1: stopping zebra
+2020-08-18 20:15:03,774 INFO: r1: waiting for daemons stopping: zebra (0.1 seconds)
+2020-08-18 20:15:03,887 INFO: stopping "sw9"
+2020-08-18 20:15:03,888 INFO: stopping "sw8"
+2020-08-18 20:15:03,888 INFO: stopping "sw1"
+2020-08-18 20:15:03,888 INFO: stopping "sw3"
+2020-08-18 20:15:03,888 INFO: stopping "sw2"
+2020-08-18 20:15:03,888 INFO: stopping "sw5"
+2020-08-18 20:15:03,888 INFO: stopping "sw4"
+2020-08-18 20:15:03,888 INFO: stopping "sw7"
+2020-08-18 20:15:03,888 INFO: stopping "sw6"
+
+
+==================== 2 passed, 1 skipped in 411.35 seconds =====================
+ubuntu1604-amd64-2000mb-2000Mb-0
