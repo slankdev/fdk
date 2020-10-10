@@ -75,6 +75,19 @@ function fdk-build() {
   fi
   docker exec $1 bash -c "\
     cd /root/git/frr && \
+    make -j8 && \
+    make -j8 install \
+  "
+}
+
+function fdk-build-full() {
+  if [ $# -ne 1 ]; then
+    echo "invalid command syntax" 1>&2
+    echo "Usage: $0 <container-name>" 1>&2
+    return 1
+  fi
+  docker exec $1 bash -c "\
+    cd /root/git/frr && \
     ./bootstrap.sh && \
     ./configure \
       --prefix=/usr \
@@ -113,6 +126,7 @@ function fdk-topotest() {
 
 complete -F _fdk_list    fdk-list
 complete -F _fdk_list    fdk-build
+complete -F _fdk_list    fdk-build-full
 complete -F _fdk_list    fdk-exec
 complete -F _fdk_list    fdk-exec-it
 complete -F _fdk_list    fdk-topotest
