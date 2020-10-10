@@ -40,6 +40,17 @@ function fdk-nsenter() {
   docker exec -it $1 nsenter -t $PID -a bash --norc
 }
 
+function fdk-nsenter-exec() {
+  if [ $# -lt 3 ]; then
+    echo "invalid command syntax" 1>&2
+    echo "Usage: $0 <container-name> <mininet-node>" 1>&2
+    return 1
+  fi
+  PID=$(docker exec $1 pgrep -f "bash --norc -is mininet:$2")
+  echo EXECUTE: docker exec -it $1 nsenter -t $PID -a bash --norc
+  docker exec -it $1 nsenter -t $PID -a ${@:3:($#-2)}
+}
+
 function fdk-list() {
   if [ $# -ne 1 ]; then
     echo "invalid command syntax" 1>&2
@@ -131,3 +142,4 @@ complete -F _fdk_list    fdk-exec
 complete -F _fdk_list    fdk-exec-it
 complete -F _fdk_list    fdk-topotest
 complete -F _fdk_nsenter fdk-nsenter
+complete -F _fdk_nsenter fdk-nsenter-exec
