@@ -47,7 +47,7 @@ function fdk-nsenter-exec() {
     return 1
   fi
   PID=$(docker exec $1 pgrep -f "bash --norc -is mininet:$2")
-  echo EXECUTE: docker exec -it $1 nsenter -t $PID -a bash --norc
+  echo EXECUTE: docker exec $1 nsenter -t $PID -a ${@:3:($#-2)}
   docker exec -it $1 nsenter -t $PID -a ${@:3:($#-2)}
 }
 
@@ -127,9 +127,6 @@ function fdk-topotest() {
     return 1
   fi
   docker exec -it $1 bash -c "\
-    cd /root/git/frr && \
-    make -j8 && \
-    make -j8 install && \
     cd /root/git/frr/tests/topotests/srv6_manager && \
     ./test_srv6_manager.py $2 \
   "
