@@ -126,9 +126,22 @@ function fdk-topotest() {
     echo "Usage: $0 <container>" 1>&2
     return 1
   fi
+
+  if [ $FDK_TOPOTEST_DIR = "" ]; then
+    echo "env isn't set" 1>&2
+    echo "FDK_TOPOTEST_DIR=XXX" 1>&2
+    return 1
+  fi
+
+  if [ $FDK_TOPOTEST_FILE = "" ]; then
+    echo "env isn't set" 1>&2
+    echo "FDK_TOPOTEST_FILE=XXX" 1>&2
+    return 1
+  fi
+
   docker exec -it $1 bash -c "\
-    cd /root/git/frr/tests/topotests/srv6_manager && \
-    ./test_srv6_manager.py $2 \
+    cd /root/git/frr/tests/topotests/$FDK_TOPOTEST_DIR && \
+    ./$FDK_TOPOTEST_FILE $2 \
   "
 }
 
