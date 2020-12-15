@@ -2,9 +2,6 @@
 IMG=slankdev/frr-dev:ubuntu-20.04-amd64
 NAM=frr-ubuntu2004-amd64
 docker run -td --privileged \
-  --memory=4000mb \
-  --memory-swap=4000mb \
-  --memory-swappiness=0 \
   -v /root/git/frr:/root/git/frr \
   -v /tmp:/tmp \
   --name $NAM --hostname $NAM $IMG
