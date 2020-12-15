@@ -86,8 +86,8 @@ function fdk-build() {
   fi
   docker exec $1 bash -c "\
     cd /root/git/frr && \
-    make -j8 && \
-    make -j8 install \
+    make $FDK_MAKE_FLAGS && \
+    make $FDK_MAKE_FLAGS install \
   "
 }
 
@@ -114,9 +114,9 @@ function fdk-build-full() {
       --enable-vty-group=frrvty \
       --enable-address-sanitizer \
       --with-pkg-extra-version=-fdk-test && \
-    make -j8 clean && \
-    make -j8 && \
-    make -j8 install \
+    make $FDK_MAKE_FLAGS clean && \
+    make $FDK_MAKE_FLAGS && \
+    make $FDK_MAKE_FLAGS install \
   "
 }
 
