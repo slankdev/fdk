@@ -48,7 +48,7 @@ function fdk-nsenter-exec() {
   fi
   PID=$(docker exec $1 pgrep -f "bash --norc -is mininet:$2")
   echo EXECUTE: docker exec $1 nsenter -t $PID -a ${@:3:($#-2)}
-  docker exec -it $1 nsenter -t $PID -a ${@:3:($#-2)}
+  docker exec -it $1 nsenter -t $PID -a "${@:3:($#-2)}"
 }
 
 function fdk-list() {
