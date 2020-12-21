@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  become: True
+  become_method: sudo
+  gather_facts: no
+  tasks:
+
+  - name: virt destroy
+    virt:
+      command: destroy
+      name: 'ubuntu-1804-amd64'
+    ignore_errors: yes
+
+  - name: virt undefine
+    virt:
+      command: undefine
+      name: 'ubuntu-1804-amd64'
+    ignore_errors: yes
+
+  - name: delete image
+    file:
+      state: absent
+      path: "/var/lib/libvirt/images/ubuntu-1804-amd64.qcow2"
+    ignore_errors: yes
+
+  - name: virt-net destroy
+    virt_net:
+      command: destroy
+      name: 'fdk'
+    ignore_errors: yes
+
+  - name: virt-net undefine
+    virt_net:
+      command: undefine
+      name: 'fdk'
+    ignore_errors: yes
