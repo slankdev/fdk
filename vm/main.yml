@@ -8,8 +8,9 @@
   - os_installer
   - vm
 
-# - hosts: localhost
-#   become: True
-#   become_method: sudo
-#   gather_facts: no
-#   tasks:
+- hosts: vm
+  become: True
+  become_method: sudo
+  gather_facts: yes
+  roles:
+  - iproute2
