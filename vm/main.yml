@@ -2,72 +2,106 @@
 - hosts: localhost
   become: True
   become_method: sudo
-  gather_facts: True
+  gather_facts: no
+  tags: sss
+  roles:
+  - libvirt
+
+- hosts: localhost
+  become: True
+  become_method: sudo
+  gather_facts: no
   tasks:
 
-  - name: install required packages
-    yum:
-      name: "{{ packages }}"
-    vars:
-      packages:
-      - libguestfs
-      - libvirt
-      - libvirt-client
-      - virt-manager
-      - virt-top
-      - virt-viewer
-      - virt-who
-      - virt-install
-      - bridge-utils
-      - qemu-kvm
-      - qemu-system-x86
-
-  - name: rmmod kvm
-    modprobe:
-      name: kvm_intel
-      state: absent
-    ignore_errors: True
-
-  - name: insmod kvm
-    modprobe:
-      name: kvm_intel
-      state: present
-      params:
-        nested: "1"
-
-  - name: enable and start libvirtd
-    systemd:
-      name: libvirtd
-      state: restarted
-      enabled: yes
-
-  - name: get ubuntu-1604-i386 cloud image
+  - name: get cloud image
     get_url:
-      url: https://cloud-images.ubuntu.com/xenial/20200814/xenial-server-cloudimg-i386-disk1.img
-      dest: /tmp/ubuntu-1604-i386.img
-      checksum: sha256:6f029ff24448dbceae156d0a52456709c51504a77f3f89ebf41fc75c656f875a
+      url:      "{{ item.url }}"
+      dest:     "{{ item.name }}"
+      checksum: "{{ item.sum }}"
+    with_items:
+    - name: /tmp/cloud-ubuntu-1804-amd64.img
+      url: https://cloud-images.ubuntu.com/bionic/20201211.1/bionic-server-cloudimg-amd64.img
+      sum: sha256:f136639410c31008a49c57ea8963923773d0cafe2834c7e59a8dacd326c640f3
 
   - name: copy vm image
     copy:
-      src: /tmp/ubuntu-1604-i386.img
-      dest: /var/lib/libvirt/images/ubuntu1604-i386.img
+      src: /tmp/cloud-ubuntu-1804-amd64.img
+      dest: /var/lib/libvirt/images/cloud-ubuntu-1804-amd64.img
       owner: qemu
       group: qemu
       mode: 0600
       force: no
 
-  - name: undefine l1 nodes
-    tags: slankdev
-    virt:
-      command: undefine
-      name: ubuntu-1604-i386
-    ignore_errors: yes
+  - name: fact
+    register: base_stat
+    stat:
+      path: /var/lib/libvirt/images/base-ubuntu-1804-amd64-cidata.iso
+  - name: create base image
+    when: base_stat.stat.exists == false
+    block:
 
-  - name: vm.xml
-    tags: slankdev
-    virt:
-      command: define
-      xml: "{{ lookup('template', 'domain.xml.j2') }}"
-    vars:
-      name: ubuntu-1604-i386
-      image: /var/lib/libvirt/images/ubuntu1604-i386.img
+    - name: shell1
+      shell: |
+        set -uxe
+        cat >/tmp/meta-data <<EOF
+        EOF
+
+        cat >/tmp/user-data <<EOF
+        #cloud-config
+        users:
+        - name: ubuntu
+          ssh-authorized-keys:
+          - $(cat ~/.ssh/id_rsa.pub)
+          sudo: ['ALL=(ALL) NOPASSWD:ALL']
+          groups: sudo
+          shell: /bin/bash
+        runcmd:
+        - echo "AllowUsers ubuntu" >> /etc/ssh/sshd_config
+        - restart ssh
+        EOF
+
+        genisoimage \
+          -output /var/lib/libvirt/images/base-ubuntu-1804-amd64-cidata.iso \
+          -volid cidata -joliet -rock /tmp/user-data /tmp/meta-data
+
+  - name: fact2
+    register: base_stat
+    stat:
+      path: /var/lib/libvirt/images/ubuntu-1804-amd64.img
+  - name: shell2
+    when: base_stat.stat.exists == false
+    shell: |
+      set -uxe
+
+      qemu-img create -f qcow2 \
+        -o backing_file=/var/lib/libvirt/images/cloud-ubuntu-1804-amd64.img \
+        /var/lib/libvirt/images/ubuntu-1804-amd64.img
+      qemu-img resize /var/lib/libvirt/images/ubuntu-1804-amd64.img 16G
+
+      virt-install \
+        --connect qemu:///system \
+        --virt-type kvm \
+        --name ubuntu-1804-amd64 \
+        --ram 128000 --vcpus=16 \
+        --os-type linux \
+        --os-variant ubuntu18.04 \
+        --disk path=/var/lib/libvirt/images/ubuntu-1804-amd64.img,format=qcow2 \
+        --disk /var/lib/libvirt/images/base-ubuntu-1804-amd64-cidata.iso,device=cdrom \
+        --import --network network=fdk,mac=52:54:00:11:11:11 \
+        --noautoconsole
+
+  # - name: undefine l1 nodes
+  #   tags: slankdev
+  #   virt:
+  #     command: undefine
+  #     name: ubuntu-1804-amd64
+  #   ignore_errors: yes
+  #
+  # - name: vm.xml
+  #   tags: slankdev
+  #   virt:
+  #     command: define
+  #     xml: "{{ lookup('template', 'domain.xml.j2') }}"
+  #   vars:
+  #     name: ubuntu-1804-amd64
+  #     image: /var/lib/libvirt/images/ubuntu1804-amd64.img
