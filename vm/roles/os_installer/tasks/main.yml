@@ -1,0 +1,51 @@
+---
+- name: get cloud image
+  get_url:
+    url:      "{{ item.url }}"
+    dest:     "{{ item.name }}"
+    checksum: "{{ item.sum }}"
+  with_items:
+  - name: /tmp/cloud-ubuntu-1804-amd64.img
+    url: https://cloud-images.ubuntu.com/bionic/20201211.1/bionic-server-cloudimg-amd64.img
+    sum: sha256:f136639410c31008a49c57ea8963923773d0cafe2834c7e59a8dacd326c640f3
+
+- name: copy vm image
+  copy:
+    src: /tmp/cloud-ubuntu-1804-amd64.img
+    dest: /var/lib/libvirt/images/cloud-ubuntu-1804-amd64.img
+    owner: qemu
+    group: qemu
+    mode: 0600
+    force: no
+
+- name: fact
+  register: base_stat
+  stat:
+    path: /var/lib/libvirt/images/base-ubuntu-1804-amd64-cidata.iso
+- name: create base image
+  when: base_stat.stat.exists == false
+  block:
+
+  - name: shell1
+    shell: |
+      set -uxe
+      cat >/tmp/meta-data <<EOF
+      EOF
+
+      cat >/tmp/user-data <<EOF
+      #cloud-config
+      users:
+      - name: ubuntu
+        ssh-authorized-keys:
+        - $(cat ~/.ssh/id_rsa.pub)
+        sudo: ['ALL=(ALL) NOPASSWD:ALL']
+        groups: sudo
+        shell: /bin/bash
+      runcmd:
+      - echo "AllowUsers ubuntu" >> /etc/ssh/sshd_config
+      - restart ssh
+      EOF
+
+      genisoimage \
+        -output /var/lib/libvirt/images/base-ubuntu-1804-amd64-cidata.iso \
+        -volid cidata -joliet -rock /tmp/user-data /tmp/meta-data
