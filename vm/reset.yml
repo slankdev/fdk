@@ -20,7 +20,7 @@
   - name: delete image
     file:
       state: absent
-      path: "/var/lib/libvirt/images/ubuntu-1804-amd64.qcow2"
+      path: "/var/lib/libvirt/images/ubuntu-1804-amd64.img"
     ignore_errors: yes
 
   - name: virt-net destroy
