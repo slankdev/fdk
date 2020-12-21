@@ -1,12 +1,21 @@
 ---
-- name: fact2
-  register: base_stat
-  stat:
-    path: /var/lib/libvirt/images/ubuntu-1804-amd64.img
+- name: fact
+  set_fact:
+    vms:
+    - name: 'ubuntu-1804-amd64'
+      mac:  '52:54:00:11:11:11'
+      ip:   '192.168.133.11'
+      disk: '16G'
+      ram:  '128000'
+      vcpu: '16'
+
 - name: shell2
-  when: base_stat.stat.exists == false
+  with_items: '{{ vms }}'
   shell: |
     set -uxe
+    if [ -e /var/lib/libvirt/images/ubuntu-1804-amd64.img ]; then
+      exit
+    fi
 
     qemu-img create -f qcow2 \
       -o backing_file=/var/lib/libvirt/images/cloud-ubuntu-1804-amd64.img \
@@ -27,6 +36,7 @@
 
 - name: wait sshd is launched
   wait_for:
-    host: 192.168.133.11
+    host: "{{ item.ip }}"
     port: 22
     timeout: 120
+  with_items: '{{ vms }}'
