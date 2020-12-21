@@ -3,7 +3,7 @@
   <uuid>ff9150a5-82b1-45e1-953e-56d10fd9e628</uuid>
   <memory unit='KiB'>8388608</memory>
   <currentMemory unit='KiB'>8388608</currentMemory>
-  <vcpu placement='static'>4</vcpu>
+  <vcpu placement='static'>8</vcpu>
   <resource>
     <partition>/machine</partition>
   </resource>
@@ -13,7 +13,8 @@
     <!-- <type arch='x86' machine='pc'>linux</type> -->
 		<!-- <boot dev='hd'/> -->
 
-    <type arch='x86' machine='pc-i440fx-2.0'>hvm</type>
+		<!-- <type arch='x86' machine='pc&#45;i440fx&#45;2.0'>hvm</type> -->
+		<type arch='x86_64' machine='pc-i440fx-rhel7.0.0'>hvm</type>
   </os>
   <!-- <features> -->
   <!--   <acpi/> -->
@@ -65,8 +66,7 @@
     <suspend-to-disk enabled='no'/>
   </pm>
   <devices>
-    <emulator>/usr/bin/qemu-system-i386</emulator>
-    <!-- <emulator>/usr/libexec/qemu&#45;kvm</emulator> -->
+    <emulator>/usr/libexec/qemu-kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2'/>
       <source file='{{ image }}'/>
