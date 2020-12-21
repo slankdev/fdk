@@ -1,0 +1,9 @@
+---
+- name: latest git
+  shell: |
+    set -ue
+    apt install build-essential pkg-config bison flex -y
+    mkdir -p /usr/src/git && cd $_
+    git clone https://git.kernel.org/pub/scm/network/iproute2/iproute2.git
+    cd iproute2
+    ./configure && make -j`nproc` && make -j`nproc` install
