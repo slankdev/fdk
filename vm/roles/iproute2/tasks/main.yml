@@ -10,6 +10,9 @@
 - name: latest iproute2
   shell: |
     set -ue
+    if [ -e /usr/src/iproute2 ]; then
+      exit
+    fi
     mkdir -p /usr/src/iproute2 && cd /usr/src/iproute2
     git clone https://git.kernel.org/pub/scm/network/iproute2/iproute2.git
     cd iproute2
