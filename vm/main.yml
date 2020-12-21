@@ -12,5 +12,7 @@
   become: True
   become_method: sudo
   gather_facts: yes
+  tags: vm
   roles:
   - iproute2
+  - frrdev
