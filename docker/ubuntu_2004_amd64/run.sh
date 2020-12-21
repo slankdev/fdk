@@ -4,4 +4,5 @@ NAM=frr-ubuntu2004-amd64
 docker run -td --privileged \
   -v /root/git/frr:/root/git/frr \
   -v /tmp:/tmp \
+  -v /usr/share/nginx/html:/pcap \
   --name $NAM --hostname $NAM $IMG
