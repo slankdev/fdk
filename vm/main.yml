@@ -6,35 +6,10 @@
   roles:
   - libvirt
   - os_installer
+  - vm
 
-- hosts: localhost
-  become: True
-  become_method: sudo
-  gather_facts: no
-  tasks:
-
-  - name: fact2
-    register: base_stat
-    stat:
-      path: /var/lib/libvirt/images/ubuntu-1804-amd64.img
-  - name: shell2
-    when: base_stat.stat.exists == false
-    shell: |
-      set -uxe
-
-      qemu-img create -f qcow2 \
-        -o backing_file=/var/lib/libvirt/images/cloud-ubuntu-1804-amd64.img \
-        /var/lib/libvirt/images/ubuntu-1804-amd64.img
-      qemu-img resize /var/lib/libvirt/images/ubuntu-1804-amd64.img 16G
-
-      virt-install \
-        --connect qemu:///system \
-        --virt-type kvm \
-        --name ubuntu-1804-amd64 \
-        --ram 128000 --vcpus=16 \
-        --os-type linux \
-        --os-variant ubuntu18.04 \
-        --disk path=/var/lib/libvirt/images/ubuntu-1804-amd64.img,format=qcow2 \
-        --disk /var/lib/libvirt/images/base-ubuntu-1804-amd64-cidata.iso,device=cdrom \
-        --import --network network=fdk,mac=52:54:00:11:11:11 \
-        --noautoconsole
+# - hosts: localhost
+#   become: True
+#   become_method: sudo
+#   gather_facts: no
+#   tasks:
