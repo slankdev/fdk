@@ -1,37 +1,27 @@
 ---
-- name: fact
-  set_fact:
-    vms:
-    - name: 'ubuntu-1804-amd64'
-      mac:  '52:54:00:11:11:11'
-      ip:   '192.168.133.11'
-      disk: '16G'
-      ram:  '128000'
-      vcpu: '16'
-
 - name: shell2
   with_items: '{{ vms }}'
   shell: |
     set -uxe
-    if [ -e /var/lib/libvirt/images/ubuntu-1804-amd64.img ]; then
+    if [ -e {{ item.image_name }} ]; then
       exit
     fi
 
     qemu-img create -f qcow2 \
-      -o backing_file=/var/lib/libvirt/images/cloud-ubuntu-1804-amd64.img \
-      /var/lib/libvirt/images/ubuntu-1804-amd64.img
-    qemu-img resize /var/lib/libvirt/images/ubuntu-1804-amd64.img 16G
+      -o backing_file={{ item.cloud_image_dst }} \
+      {{ item.image_name }}
+    qemu-img resize {{ item.image_name }} {{ item.disk }}
 
     virt-install \
       --connect qemu:///system \
       --virt-type kvm \
-      --name ubuntu-1804-amd64 \
-      --ram 128000 --vcpus=16 \
+      --name {{ item.name }} \
+      --ram {{ item.ram }} --vcpus={{ item.vcpu }} \
       --os-type linux \
-      --os-variant ubuntu18.04 \
-      --disk path=/var/lib/libvirt/images/ubuntu-1804-amd64.img,format=qcow2 \
-      --disk /var/lib/libvirt/images/base-ubuntu-1804-amd64-cidata.iso,device=cdrom \
-      --import --network network=fdk,mac=52:54:00:11:11:11 \
+      --os-variant {{ item.os_variant }} \
+      --disk path={{ item.image_name }},format=qcow2 \
+      --disk {{ item.cdrom }},device=cdrom \
+      --import --network network=fdk,mac={{ item.mac }} \
       --noautoconsole
 
 - name: wait sshd is launched

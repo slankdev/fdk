@@ -16,4 +16,5 @@
     mkdir -p /usr/src/iproute2 && cd /usr/src/iproute2
     git clone https://git.kernel.org/pub/scm/network/iproute2/iproute2.git
     cd iproute2
+    echo "echo 'LDLIBS += -lm' >> \$CONFIG" >> configure
     ./configure && make -j`nproc` && make -j`nproc` install

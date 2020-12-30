@@ -3,6 +3,7 @@
   become: True
   become_method: sudo
   gather_facts: no
+  tags: localhost
   roles:
   - libvirt
   - os_installer
