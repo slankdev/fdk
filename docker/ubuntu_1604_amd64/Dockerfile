@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y \
    pkg-config libpam0g-dev libjson-c-dev bison flex python3-pytest \
    libc-ares-dev python3-dev libsystemd-dev python-ipaddress python3-sphinx \
    install-info build-essential libsystemd-dev libsnmp-dev perl libcap-dev
-ADD https://ci1.netdef.org/artifact/LIBYANG-YANGRELEASE/shared/build-10/Debian-AMD64-Packages/libyang-dev_0.16.105-1_amd64.deb /tmp
-ADD https://ci1.netdef.org/artifact/LIBYANG-YANGRELEASE/shared/build-10/Debian-AMD64-Packages/libyang0.16_0.16.105-1_amd64.deb /tmp
+ADD https://ci1.netdef.org/artifact/LIBYANG-LY1REL/shared/build-4/Ubuntu-20.04-x86_64-Packages/libyang-dev_1.0.184-4-gf0cf7120-1~1.gbp1b59fa_amd64.deb /tmp
+ADD https://ci1.netdef.org/artifact/LIBYANG-LY1REL/shared/build-4/Ubuntu-20.04-x86_64-Packages/libyang1_1.0.184-4-gf0cf7120-1~1.gbp1b59fa_amd64.deb /tmp
 RUN cd /tmp && apt install -y ./*.deb
 
 ## Fot Topotest
