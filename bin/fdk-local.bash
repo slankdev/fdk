@@ -3,8 +3,10 @@ FDK_FRR_PATH=~/frr
 FDK_TOPOTEST_TARGET=bgp_multi_vrf_topo2/test_bgp_multi_vrf_topo2.py
 FDK_TOPOTEST_TARGET=bgp_multi_vrf_topo1/test_bgp_multi_vrf_topo1.py
 FDK_TOPOTEST_TARGET=bgp_l3vpn_to_bgp_vrf/test_bgp_l3vpn_to_bgp_vrf.py
-FDK_TOPOTEST_TARGET=bgp_srv6l3vpn_to_bgp_vrf/test_bgp_srv6l3vpn_to_bgp_vrf.py
+FDK_TOPOTEST_TARGET=zebra_seg6_route/test_zebra_seg6_route.py
+FDK_TOPOTEST_TARGET=zebra_seg6local_route/test_zebra_seg6local_route.py
 FDK_TOPOTEST_TARGET=srv6_locator/test_srv6_locator.py
+FDK_TOPOTEST_TARGET=bgp_srv6l3vpn_to_bgp_vrf/test_bgp_srv6l3vpn_to_bgp_vrf.py
 FDK_TOPOTEST_TARGETS="\
 	bgp_multi_vrf_topo1/test_bgp_multi_vrf_topo1.py
 	bgp-vrf-route-leak-basic/test_bgp-vrf-route-leak-basic.py
@@ -99,6 +101,10 @@ function fdk-test-list() {
 function fdk-test-all() {
 	for file in $FDK_TOPOTEST_TARGETS; do
 		pytest -s -v --log-level=DEBUG $FDK_FRR_PATH/tests/topotests/$file;
+		if [ "$?" != "0" ]; then
+			echo "error"
+			return
+		fi
 	done
 }
 
