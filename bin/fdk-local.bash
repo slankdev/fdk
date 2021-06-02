@@ -3,10 +3,12 @@ FDK_FRR_PATH=~/frr
 FDK_TOPOTEST_TARGET=bgp_multi_vrf_topo2/test_bgp_multi_vrf_topo2.py
 FDK_TOPOTEST_TARGET=bgp_multi_vrf_topo1/test_bgp_multi_vrf_topo1.py
 FDK_TOPOTEST_TARGET=bgp_l3vpn_to_bgp_vrf/test_bgp_l3vpn_to_bgp_vrf.py
-FDK_TOPOTEST_TARGET=zebra_seg6_route/test_zebra_seg6_route.py
-FDK_TOPOTEST_TARGET=zebra_seg6local_route/test_zebra_seg6local_route.py
 FDK_TOPOTEST_TARGET=srv6_locator/test_srv6_locator.py
+FDK_TOPOTEST_TARGET=zebra_seg6local_route/test_zebra_seg6local_route.py
+FDK_TOPOTEST_TARGET=zebra_seg6_route/test_zebra_seg6_route.py
+FDK_TOPOTEST_TARGET=bgp_instance_del_test/test_bgp_instance_del_test.py
 FDK_TOPOTEST_TARGET=bgp_srv6l3vpn_to_bgp_vrf/test_bgp_srv6l3vpn_to_bgp_vrf.py
+FDK_TOPOTEST_TARGET=bgp_instance_del_test/test_bgp_instance_del_test.py
 FDK_TOPOTEST_TARGETS="\
 	bgp_multi_vrf_topo1/test_bgp_multi_vrf_topo1.py
 	bgp-vrf-route-leak-basic/test_bgp-vrf-route-leak-basic.py
@@ -108,17 +110,17 @@ function fdk-test-all() {
 	done
 }
 
-function fdk-test-one() { pytest -s -vv --log-level=DEBUG $FDK_FRR_PATH/tests/topotests/$FDK_TOPOTEST_TARGET; }
-function t() { echo fdk-test-one; }
+function fdk-test() { pytest -s -vv --log-level=DEBUG $FDK_FRR_PATH/tests/topotests/$FDK_TOPOTEST_TARGET; }
+function t() { echo fdk-test; }
 
-function fdk-test-one-topology-only() { pytest -s -v --log-level=DEBUG --topology-only $FDK_FRR_PATH/tests/topotests/$FDK_TOPOTEST_TARGET; }
-function tt() { echo fdk-test-one-topology-only; }
+function fdk-test-topology-only() { pytest -s -v --log-level=DEBUG --topology-only $FDK_FRR_PATH/tests/topotests/$FDK_TOPOTEST_TARGET; }
+function tt() { echo fdk-test-topology-only; }
 
 function l() { ps aux | grep mininet | grep -v grep | awk '{ print $14 }' | awk -F: '{ print $2 }'; }
 function b() { make -C $FDK_FRR_PATH -j16 && make -C $FDK_FRR_PATH -j16 install; }
 function cbtt() { cb && tt; }
-function bt() { b && t; }
-function bta() { b && ta; }
+function bt() { b && fdk-test; }
+function bta() { b && fdk-test-all; }
 function btt() { b && tt; }
 
 function r1p() { echo $(ps aux | grep mininet:r1 | grep -v grep | awk '{print $2}'); }
