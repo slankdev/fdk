@@ -1,0 +1,31 @@
+- hosts: localhost
+  become: True
+  become_method: sudo
+  gather_facts: no
+  roles:
+  - name: sshclient
+    tags: sshclient
+  - name: packages
+    tags: packages
+  - name: images
+    tags: images
+  - name: libvirt
+    tags: libvirt
+  - name: machines
+    tags: machines
+
+- hosts: machines
+  become: True
+  become_method: sudo
+  gather_facts: yes
+  roles:
+  - name: sshserver
+    tags: sshserver
+  - name: devpackages
+    tags: devpackages
+  - name: iproute2
+    tags: iproute2
+  - name: frrouting
+    tags: frrouting
+  - name: fdk
+    tags: fdk

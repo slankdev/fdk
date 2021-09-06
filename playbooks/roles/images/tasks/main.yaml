@@ -1,0 +1,50 @@
+---
+- name: qcow dir create
+  ansible.builtin.file:
+    path: /var/lib/fdk/images
+    state: directory
+    recurse: yes
+
+- name: download qcow image
+  get_url:
+    url: "{{ item.url }}"
+    dest: /var/lib/fdk/images/{{ item.name }}.org.img
+  with_items: "{{ images }}"
+
+- name: customize cloud-image
+  with_items: "{{ images }}"
+  register: result
+  changed_when: '"CHANGED" in result.stdout'
+  shell: |
+    cat <<EOF > /tmp/netplan.yaml
+    network:
+      version: 2
+      ethernets:
+        ens3:
+          dhcp4: true
+    EOF
+    cat <<EOF > /tmp/sshd_config.conf
+    PermitRootLogin yes
+    PasswordAuthentication yes
+    EOF
+
+    ORG=/var/lib/fdk/images/{{ item.name }}.org.img
+    NEW=/var/lib/fdk/images/{{ item.name }}.img
+    if [ -f "$NEW" ]; then
+      exit 0
+    fi
+
+    cp $ORG $NEW
+    qemu-img resize $NEW 10G
+    export LIBGUESTFS_BACKEND=direct
+    virt-customize -a $NEW \
+      --run-command 'apt-get remove -y cloud-init' \
+      --run-command 'apt-get purge --auto-remove -y cloud-init' \
+      --run-command 'ssh-keygen -A' \
+      --upload /tmp/netplan.yaml:/etc/netplan/10-fdk.yaml \
+      --upload /tmp/sshd_config.conf:/etc/ssh/sshd_config.d/fdk.conf \
+      --root-password password:root \
+      --run-command 'growpart /dev/sda 1' \
+      --run-command 'resize2fs /dev/sda1' \
+      #END
+    echo CHANGED

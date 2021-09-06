@@ -1,0 +1,17 @@
+- name: install required packages
+  yum:
+    name:
+    - libguestfs
+    - libvirt
+    - libvirt-devel
+    - libvirt-client
+    - virt-manager
+    - virt-top
+    - virt-viewer
+    - virt-who
+    - virt-install
+    - bridge-utils
+    - qemu-kvm
+    - qemu-system-x86
+    - /usr/bin/virt-customize
+    - sshpass

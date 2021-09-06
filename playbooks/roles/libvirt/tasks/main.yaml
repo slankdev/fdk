@@ -1,0 +1,33 @@
+- name: enable and start libvirtd
+  systemd:
+    name: libvirtd
+    state: started
+    enabled: yes
+
+- name: define network
+  virt_net:
+    command: 'define'
+    name:    'fdk'
+    xml:     '{{ lookup("template", "network.xml.j2") }}'
+
+- name: set network autostart
+  virt_net:
+    name:      'fdk'
+    autostart: 'yes'
+
+- name: start network
+  virt_net:
+    command: 'start'
+    name:    'fdk'
+
+- name: virt-net destroy default
+  virt_net:
+    command: 'destroy'
+    name:    'default'
+  failed_when: false
+
+- name: virt-net undefine default
+  virt_net:
+    command: 'undefine'
+    name:    'default'
+  failed_when: false

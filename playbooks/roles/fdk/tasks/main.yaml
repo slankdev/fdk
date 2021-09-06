@@ -1,0 +1,5 @@
+- name: install fdk-local.bash
+  ansible.builtin.template:
+    src: fdk-local.bash.j2
+    dest: /etc/fdk-local.bash
+    mode: 0644

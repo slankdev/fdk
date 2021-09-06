@@ -1,0 +1,50 @@
+# http://docs.frrouting.org/projects/dev-guide/en/latest/building-frr-for-ubuntu2004.html
+- name: install required packages
+  apt:
+    update_cache: yes
+    name:
+    - build-essential
+    - git
+    - autoconf
+    - automake
+    - libtool
+    - make
+    - libreadline-dev
+    - pkg-config
+    - libpam0g-dev
+    - libjson-c-dev
+    - bison
+    - flex
+    - libc-ares-dev
+    - python3-dev
+    - python3-sphinx
+    - install-info
+    - build-essential
+    - libsnmp-dev
+    - perl
+    - libcap-dev
+    - libelf-dev
+    - libmnl-dev
+    - python-is-python2
+    - python3-pytest
+    - python2
+    - python-ipaddress
+    - python3-pip
+    - texinfo
+
+- name: get iproute2 package
+  get_url:
+    url: https://bootstrap.pypa.io/pip/2.7/get-pip.py
+    dest: /tmp/get-pip.py
+
+- name: execute get-pip.py
+  shell: python2 /tmp/get-pip.py
+
+- name: install libyang
+  apt:
+    deb: "{{ item }}"
+  with_items:
+  - https://ci1.netdef.org/artifact/LIBYANG-LIBYANGV2/shared/build-5/Ubuntu-20.04-x86_64-Packages/libyang2_2.0.7-1~ubuntu20.04u1_amd64.deb
+  - https://ci1.netdef.org/artifact/LIBYANG-LIBYANGV2/shared/build-5/Ubuntu-20.04-x86_64-Packages/libyang2-dev_2.0.7-1~ubuntu20.04u1_amd64.deb
+  - https://ci1.netdef.org/artifact/LIBYANG-LIBYANGV2/shared/build-5/Ubuntu-20.04-x86_64-Packages/libyang2-tools_2.0.7-1~ubuntu20.04u1_amd64.deb
+  - https://ci1.netdef.org/artifact/LIBYANG-LIBYANGV2/shared/build-5/Ubuntu-20.04-x86_64-Packages/libyang-tools_2.0.7-1~ubuntu20.04u1_all.deb
