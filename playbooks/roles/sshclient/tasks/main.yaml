@@ -1,0 +1,15 @@
+- name: ensure ssh-keypair on working directly
+  become: yes
+  openssh_keypair:
+    path: "{{ lookup('env', 'HOME') }}/.ssh/fdk"
+  register: sshkey
+
+- name: ensure ssh-keypair on working directly (file mode)
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.ssh/{{ item }}"
+    owner: irteamsu
+    group: irteamsu
+    mode: '0600'
+  with_items:
+  - fdk.pub
+  - fdk

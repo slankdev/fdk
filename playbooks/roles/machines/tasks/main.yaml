@@ -1,0 +1,49 @@
+---
+- name: qcow dir create
+  ansible.builtin.file:
+    path: /var/lib/fdk/machines
+    state: directory
+    recurse: yes
+
+- name: image file copy
+  ansible.builtin.copy:
+    src: /var/lib/fdk/images/ubuntu-2004-amd64.img
+    dest: /var/lib/fdk/machines/{{ item }}.img
+    force: no
+  with_items: "{{ groups['machines'] }}"
+
+- name: define l1 nodes test
+  virt:
+    command: define
+    xml: "{{ lookup('template', 'server.xml.j2') }}"
+    autostart: yes
+  with_items: "{{ groups['machines'] }}"
+
+- name: start l1 nodes test
+  virt:
+    state: running
+    name: "{{ item }}"
+    autostart: yes
+  with_items: "{{ groups['machines'] }}"
+
+- name: set host on ssh_config
+  become: no
+  blockinfile:
+    marker: "#{mark} {{ item }}"
+    path: "{{ lookup('env', 'HOME') }}/.ssh/config"
+    create: yes
+    mode: 0600
+    block: |
+      Host {{ item }}
+        HostName {{ hostvars[item].ansible_host }}
+        User root
+        StrictHostKeyChecking no
+        IdentityFile "{{ lookup('env', 'HOME') }}/.ssh/fdk"
+  with_items: "{{ groups['machines'] }}"
+
+- name: Wait for ssh to come up
+  wait_for:
+    host: "{{ hostvars[item].ansible_host }}"
+    port: 22
+    timeout: 120
+  with_items: "{{ groups['machines'] }}"

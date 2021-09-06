@@ -1,0 +1,13 @@
+- name: get iproute2 package
+  get_url:
+    url: "{{ iproute2_base_url }}/iproute2-{{ iproute2_version }}.tar.gz"
+    dest: /tmp/
+
+- name: untar, build and install iproute2
+  shell: |
+    set -xe
+    tar xpf iproute2-{{ iproute2_version }}.tar.gz
+    cd iproute2-{{ iproute2_version }}
+    ./configure && make && make install
+  args:
+    chdir: /tmp

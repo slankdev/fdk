@@ -1,15 +1,8 @@
-# FDK: FRR Development Kit
+# FDK: FRRouting Development Kit
 
-install
-```
-git clone https://github.com/slankdev/FDK ~/git/fdk
-source ~/git/fdk/bin/fdk.bash
-```
+* (1) create base machine on verda-dev (8vCPU_32GB is required)
+* (2) execute [setup.sh script](https://raw.githubusercontent.com/slankdev/FDK/master/setup.sh)
 
-topotest
 ```
-FDK_MAKE_FLAGS=-j20
-FDK_TOPOTEST_DIR=srv6_manager
-FDK_TOPOTEST_FILE=test_srv6_manager.py
-fdk-topotest container --topology-only
+curl -s https://raw.githubusercontent.com/slankdev/fdk/master/setup.sh | sh -xe
 ```
