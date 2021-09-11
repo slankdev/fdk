@@ -102,7 +102,33 @@ function fdk-list() {
   ls -l /tmp/topotests | grep '^d' | awk '{print $9}'
 }
 
-function fdk-enter() {
+function fdk-get-context() {
+	mkdir -p /var/run/fdk
+	if [ -e /var/run/fdk/context ]; then
+		cat /var/run/fdk/context
+	else
+		echo "<nil>"
+	fi
+}
+
+function fdk-set-context() {
+  if [ $# -lt 1 ]; then
+    echo "invalid command syntax" 1>&2
+    echo "Usage: $0 <test-context-path>" 1>&2
+    return 1
+	fi
+
+	mkdir -p /var/run/fdk
+	echo $1 > /var/run/fdk/context
+}
+
+function fdk-clear-context() {
+	if [ -e /var/run/fdk/context ]; then
+		rm -f /var/run/fdk/context
+	fi
+}
+
+function fdk-enter-global() {
   if [ $# -lt 1 ]; then
     echo "invalid command syntax" 1>&2
     echo "Usage: $0 <node-pid-file>" 1>&2
@@ -117,13 +143,46 @@ function fdk-enter() {
   fi
 }
 
-function _fdk-enter() {
+function fdk-enter-ctx() {
+  if [ $# -lt 1 ]; then
+    echo "invalid command syntax" 1>&2
+    echo "Usage: $0 <node-name>" 1>&2
+    return 1
+  fi
+
+	PID=$(cat /tmp/topotests/$(cat /var/run/fdk/context)/$1)
+  if [ $# -eq 1 ]; then
+    nsenter -t $PID -a bash --norc
+  else
+    nsenter -t $PID -a "${@:2:($#-1)}"
+  fi
+}
+
+function _fdk-enter-global() {
   local args
   case $COMP_CWORD in
   1) args=$(ls /tmp/topotests/*/*.pid) ;;
   esac
-
   COMPREPLY=( `compgen -W "$args" -- ${COMP_WORDS[COMP_CWORD]}` )
 }
 
-complete -F _fdk-enter fdk-enter
+function _fdk-enter-ctx() {
+	CTX=$(cat /var/run/fdk/context)
+  local args
+  case $COMP_CWORD in
+  1) args=$(cd /tmp/topotests/$CTX && ls -1 *.pid) ;;
+  esac
+  COMPREPLY=( `compgen -W "$args" -- ${COMP_WORDS[COMP_CWORD]}` )
+}
+
+function _fdk-set-context() {
+  local args
+  case $COMP_CWORD in
+  1) args=$(ls -l /tmp/topotests | grep '^d' | awk '{print $9}') ;;
+  esac
+  COMPREPLY=( `compgen -W "$args" -- ${COMP_WORDS[COMP_CWORD]}` )
+}
+
+complete -F _fdk-enter-global fdk-enter-global
+complete -F _fdk-enter-ctx fdk-enter-ctx
+complete -F _fdk-set-context fdk-set-context
