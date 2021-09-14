@@ -11,7 +11,8 @@ machines:
       ansible_host: 192.168.133.11
       mac: '52:54:00:00:00:11'
       iproute2_version: 5.13.0
-      version_kernel: hoge
+      pahole_version: v1.21
+      kernel_version: v5.15-rc1
       frr_repository: https://github.com/FRRouting/frr
       vcpu: 4
       memory: 8388608

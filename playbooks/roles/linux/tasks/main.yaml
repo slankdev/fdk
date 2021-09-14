@@ -1,0 +1,79 @@
+- name: install required packages for kernel
+  apt:
+    update_cache: yes
+    name:
+      - libncurses-dev
+      - gawk
+      - flex
+      - bison
+      - openssl
+      - libssl-dev
+      - dkms
+      - libelf-dev
+      - libudev-dev
+      - libpci-dev
+      - libiberty-dev
+      - autoconf
+      - cmake
+      - libdw-dev
+      - libdwarf-dev
+      - git-email
+
+- name: clone pahole
+  git:
+    repo: https://git.kernel.org/pub/scm/devel/pahole/pahole.git
+    dest: /root/pahole
+    version: "{{ pahole_version }}"
+
+- name: install pahole
+  shell: |
+    set -xe
+    cd /root/pahole
+    mkdir -p build; cd build
+    cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -D__LIB=lib ..
+    make -j{{ ansible_processor_vcpus }}
+    make install
+
+- name: clone kernel
+  git:
+    repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+    dest: /root/linux
+    version: "{{ kernel_version }}"
+
+- name: create Kconfig
+  shell: |
+    set -xe
+    cd /root/linux
+    cp /boot/config-{{ ansible_kernel }} .config
+    yes "" | make config
+
+    # disable signature
+    ./scripts/config --set-str CONFIG_SYSTEM_TRUSTED_KEYS ""
+
+    # enable BTF for kernel debugging
+    ./scripts/config --enable CONFIG_DEBUG_INFO_BTF
+
+- name: build kernel
+  shell: |
+    set -xe
+    cd /root/linux
+    make -j{{ ansible_processor_vcpus }} W=all
+
+- name: install modules
+  shell: |
+    set -xe
+    cd /root/linux
+    make modules_install
+
+- name: install headers
+  shell: |
+    set -xe
+    cd /root/linux
+    make headers_install
+
+- name: install kernel
+  shell: |
+    set -xe
+    cd /root/linux
+    make install
+
