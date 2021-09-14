@@ -35,7 +35,7 @@
     fi
 
     cp $ORG $NEW
-    qemu-img resize $NEW 10G
+    qemu-img resize $NEW 64G
     export LIBGUESTFS_BACKEND=direct
     virt-customize -a $NEW \
       --run-command 'apt-get remove -y cloud-init' \
