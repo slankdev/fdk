@@ -23,6 +23,7 @@ FDK_TOPOTEST_TARGETS="\
   bgp_prefix_sid2/test_bgp_prefix_sid2.py
   bgp_srv6l3vpn_to_bgp_vrf/test_bgp_srv6l3vpn_to_bgp_vrf.py
   "
+FDK_DOCKER_IMAGE=tinynetwork/frr:develop
 
 alias cdf="cd $FDK_FRR_PATH"
 alias cdt="cd $FDK_FRR_PATH/tests/topotests/"
@@ -72,6 +73,38 @@ function fdk-build() {
   pushd $FDK_FRR_PATH
   make -j $(nproc) && make -j $(nproc) install
   popd
+}
+
+function fdk-docker-build() {
+        mkdir -p /tmp/fdk/docker
+        cat <<EOF > /tmp/fdk/docker/Dockerfile
+FROM frr-ubuntu20:latest
+USER root
+RUN mkdir -p /etc/frr
+COPY daemons /etc/frr/daemons
+RUN apt install -y vim tcpdump
+EOF
+        cat <<EOF > /tmp/fdk/docker/daemons
+zebra=yes
+bgpd=yes
+ospfd=no
+ospf6d=no
+ripd=no
+ripngd=no
+isisd=no
+pimd=no
+ldpd=no
+nhrpd=no
+eigrpd=no
+babeld=no
+sharpd=yes
+pbrd=no
+bfdd=no
+EOF
+
+        pushd /tmp/fdk/docker
+        docker build -t $FDK_DOCKER_IMAGE .
+        popd
 }
 
 function fdk-test-list() {
