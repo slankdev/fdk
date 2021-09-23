@@ -161,7 +161,7 @@ function fdk-clear-context() {
 	fi
 }
 
-function fdk-enter-global() {
+function fdk-global-enter() {
   if [ $# -lt 1 ]; then
     echo "invalid command syntax" 1>&2
     echo "Usage: $0 <node-pid-file>" 1>&2
@@ -176,7 +176,7 @@ function fdk-enter-global() {
   fi
 }
 
-function fdk-enter-ctx() {
+function fdk-enter() {
   if [ $# -lt 1 ]; then
     echo "invalid command syntax" 1>&2
     echo "Usage: $0 <node-name>" 1>&2
@@ -191,7 +191,7 @@ function fdk-enter-ctx() {
   fi
 }
 
-function _fdk-enter-global() {
+function _fdk-global-enter() {
   local args
   case $COMP_CWORD in
   1) args=$(ls /tmp/topotests/*/*.pid) ;;
@@ -199,7 +199,7 @@ function _fdk-enter-global() {
   COMPREPLY=( `compgen -W "$args" -- ${COMP_WORDS[COMP_CWORD]}` )
 }
 
-function _fdk-enter-ctx() {
+function _fdk-enter() {
 	CTX=$(cat /var/run/fdk/context)
   local args
   case $COMP_CWORD in
@@ -216,6 +216,6 @@ function _fdk-set-context() {
   COMPREPLY=( `compgen -W "$args" -- ${COMP_WORDS[COMP_CWORD]}` )
 }
 
-complete -F _fdk-enter-global fdk-enter-global
-complete -F _fdk-enter-ctx fdk-enter-ctx
+complete -F _fdk-global-enter fdk-global-enter
+complete -F _fdk-enter fdk-enter
 complete -F _fdk-set-context fdk-set-context
