@@ -67,7 +67,6 @@
 - name: setup for topotest
   tags: hoge
   shell: |
-    apt -y install linux-modules-extra-`uname -r`
     apt -y install mininet
     apt -y install iperf
     apt -y install gdb
