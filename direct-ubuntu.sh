@@ -1,5 +1,17 @@
 #!/bin/bash
 set -xe
+
+SHELL_NAME="${SHELL##*/}"
+if [ "$SHELL_NAME" = "bash" ]; then
+    PROFILE="$HOME/.bash_profile"
+elif [ "$SHELL_NAME" = "zsh" ]; then
+    PROFILE="$HOME/.zshrc"
+else
+    echo "Unknown shell."
+    echo "Supported shells: bash, zsh"
+    exit 1
+fi
+
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
