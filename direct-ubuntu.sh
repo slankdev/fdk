@@ -27,11 +27,12 @@ EOF
 
 . ~/.bash_profile
 
+sudo apt -y install libvirt-dev libpython3-dev zlib1g-dev libssl-dev
+
 pyenv install 3.8.0
 pyenv global 3.8.0
 pip install pipenv
 
-sudo apt -y install libvirt-dev libpython3-dev
 git clone https://github.com/slankdev/fdk.git
 cd fdk
 pipenv sync
