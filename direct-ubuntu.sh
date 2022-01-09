@@ -15,7 +15,7 @@ fi
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 # if pyenv is not installed yet, install it
-if [ -d $HOME/.pyenv ]; then
+if [ ! -d $HOME/.pyenv ]; then
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
     cat << 'EOF' | tee -a $PROFILE | tee /tmp/exports.sh
