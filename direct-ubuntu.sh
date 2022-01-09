@@ -16,16 +16,16 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
-cat >> $PROFILE << 'EOF'
+cat << 'EOF' | tee -a $PROFILE | tee /tmp/exports.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
-fi'
+fi
 EOF
 
-. ~/.bash_profile
+. /tmp/exports.sh
 
 sudo apt -y install libvirt-dev libpython3-dev zlib1g-dev libssl-dev
 
