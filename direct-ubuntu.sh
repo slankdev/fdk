@@ -1,24 +1,10 @@
 #!/bin/bash
-set -xe
-
-SHELL_NAME="${SHELL##*/}"
-if [ "$SHELL_NAME" = "bash" ]; then
-    PROFILE="$HOME/.bash_profile"
-elif [ "$SHELL_NAME" = "zsh" ]; then
-    PROFILE="$HOME/.zshrc"
-else
-    echo "Unknown shell."
-    echo "Supported shells: bash, zsh"
-    exit 1
-fi
+set -eux
 
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-# if pyenv is not installed yet, install it
-if [ ! -d $HOME/.pyenv ]; then
-    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-
-    cat << 'EOF' | tee -a $PROFILE | tee /tmp/exports.sh
+PYENV_EXPORTS="/tmp/pyenv-exports.sh"
+cat << 'EOF' | tee "$PYENV_EXPORTS"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
@@ -27,8 +13,26 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 EOF
 
-    . /tmp/exports.sh
+# if pyenv is not installed yet, install it
+if [ ! -d $HOME/.pyenv ]; then
+    SHELL_NAME="${SHELL##*/}"
+    if [ "$SHELL_NAME" = "bash" ]; then
+        PROFILE="$HOME/.bash_profile"
+    elif [ "$SHELL_NAME" = "zsh" ]; then
+        PROFILE="$HOME/.zshrc"
+    else
+        echo "Unknown shell. Skipped writing pyenv initializations to profile files."
+        echo "You can manually add the following script to your shell profile:"
+        echo ""
+        cat $PYENV_EXPORTS
+        echo ""
+    fi
+
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+    cat $PYENV_EXPORTS >> $PROFILE
 fi
+
+. $PYENV_EXPORTS
 
 sudo apt -y install libvirt-dev libpython3-dev zlib1g-dev libssl-dev
 
