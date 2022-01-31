@@ -10,5 +10,6 @@ curl -s https://raw.githubusercontent.com/slankdev/fdk/master/setup.sh | sh -xe
 
 ### for ubuntu2004 user
 ```
+sudo bash
 curl -s https://raw.githubusercontent.com/slankdev/fdk/master/direct-ubuntu.sh | sh -xe
 ```
