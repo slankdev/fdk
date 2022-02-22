@@ -24,6 +24,24 @@ FDK_TOPOTEST_TARGETS="\
   bgp_srv6l3vpn_to_bgp_vrf/test_bgp_srv6l3vpn_to_bgp_vrf.py
   "
 FDK_DOCKER_IMAGE=tinynetwork/frr:develop
+FDK_DOCKER_SOURCE_BUILT_IMAGE=tinynetwork/frr:source-built
+FDK_DOCKER_DAEMONS_FILE="\
+zebra=yes
+bgpd=yes
+ospfd=no
+ospf6d=no
+ripd=no
+ripngd=no
+isisd=no
+pimd=no
+ldpd=no
+nhrpd=no
+eigrpd=no
+babeld=no
+sharpd=yes
+pbrd=no
+bfdd=no
+"
 
 alias cdf="cd $FDK_FRR_PATH"
 alias cdt="cd $FDK_FRR_PATH/tests/topotests/"
@@ -75,6 +93,26 @@ function fdk-build() {
   popd
 }
 
+function fdk-docker-source-build() {
+  pushd $FDK_FRR_PATH
+  docker build -f docker/alpine/Dockerfile . -t frrouting/frr:develop
+  popd
+
+  cat <<EOF > /tmp/fdk/docker/Dockerfile
+FROM frrouting/frr:develop
+USER root
+RUN mkdir -p /etc/frr
+COPY daemons /etc/frr/daemons
+RUN apk add vim tcpdump
+EOF
+
+  echo $FDK_DOCKER_DAEMONS_FILE  > /tmp/fdk/docker/daemons
+  pushd /tmp/fdk/docker
+  docker build -t $FDK_DOCKER_SOURCE_BUILT_IMAGE .
+  popd
+
+}
+
 function fdk-docker-build() {
         mkdir -p /tmp/fdk/docker
         cat <<EOF > /tmp/fdk/docker/Dockerfile
@@ -84,23 +122,7 @@ RUN mkdir -p /etc/frr
 COPY daemons /etc/frr/daemons
 RUN apt install -y vim tcpdump
 EOF
-        cat <<EOF > /tmp/fdk/docker/daemons
-zebra=yes
-bgpd=yes
-ospfd=no
-ospf6d=no
-ripd=no
-ripngd=no
-isisd=no
-pimd=no
-ldpd=no
-nhrpd=no
-eigrpd=no
-babeld=no
-sharpd=yes
-pbrd=no
-bfdd=no
-EOF
+        echo $FDK_DOCKER_DAEMONS_FILE  > /tmp/fdk/docker/daemons
 
         pushd /tmp/fdk/docker
         docker build -t $FDK_DOCKER_IMAGE .
